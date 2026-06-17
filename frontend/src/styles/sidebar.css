@@ -1,0 +1,180 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    #0f172a,
+    #111827,
+    #1e293b
+  );
+
+  color: white;
+
+  padding: 18px;
+
+  border-right: 1px solid rgba(255,255,255,0.08);
+
+  transition: all 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* New Chat Button */
+.new-chat {
+  width: 100%;
+  padding: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb
+  );
+
+  border: none;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 4px 15px rgba(59,130,246,0.3);
+}
+
+.new-chat:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(59,130,246,0.5);
+}
+
+/* Chat List */
+.chat-list {
+  margin-top: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.chat-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 20px;
+}
+
+/* Chat Item */
+.chat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px;
+  margin-bottom: 8px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  background: rgba(255,255,255,0.03);
+}
+
+.chat-item:hover {
+  background: rgba(59,130,246,0.15);
+  transform: translateX(4px);
+}
+
+/* Active Chat */
+.chat-item.active {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+
+  color: white;
+
+  box-shadow:
+    0 4px 15px rgba(37,99,235,0.4);
+}
+
+/* Chat Title */
+.chat-title {
+  flex: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: transparent;
+  border: none;
+
+  color: #ef4444;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  opacity: 0.7;
+
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Sidebar Toggle */
+.sidebar-toggle {
+  background: rgba(255,255,255,0.08);
+
+  border: none;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 10px;
+
+  color: white;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: #2563eb;
+  transform: rotate(90deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+  }
+}

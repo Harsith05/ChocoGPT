@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #3b82f6
+  );
+
+  overflow: hidden;
+}
+
+.login-card {
+  width: 420px;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-title {
+  color: white;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.12);
+  color: white;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.login-card input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.login-card input:focus {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid #60a5fa;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  background: #3b82f6;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.switch-text {
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #60a5fa;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.switch-text span:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+}
