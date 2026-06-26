@@ -45,7 +45,6 @@ function Chat() {
     return () => unsub();
   }, []);
 
-  // 🔥 FIX 1: ORDERED CHATS (important for reload)
   const loadChats = async (uid) => {
     const q = query(
       collection(db, "users", uid, "chats"),
@@ -66,7 +65,6 @@ function Chat() {
     }
   };
 
-  // CREATE CHAT
   const createChat = async () => {
     const uid = auth.currentUser.uid;
 
@@ -87,7 +85,6 @@ function Chat() {
     openChat(docRef.id, uid);
   };
 
-  // OPEN CHAT
   const openChat = async (chatId, uid = auth.currentUser?.uid) => {
     if (!chatId || !uid) return;
 
@@ -104,7 +101,6 @@ function Chat() {
     setMessages(snap.docs.map((d) => d.data()));
   };
 
-  // 🔥 FIX 2: AUTO NAME CHAT BASED ON FIRST USER MESSAGE
   const updateChatTitle = async (chatId, text) => {
     const uid = auth.currentUser.uid;
 
@@ -125,7 +121,6 @@ function Chat() {
     );
   };
 
-  // DELETE CHAT
   const deleteChat = async (chatId) => {
     const uid = auth.currentUser.uid;
 
@@ -144,21 +139,18 @@ function Chat() {
     }
   };
 
-  // SEND MESSAGE
   const sendMessage = async () => {
     const uid = auth.currentUser.uid;
 
     let chatId = currentChatId;
 
-
     if (!message.trim() && selectedFiles.length === 0) return;
 
-    // create chat if none
     if (!chatId) {
       const docRef = await addDoc(
         collection(db, "users", uid, "chats"),
         {
-          title: message, // initial temp title
+          title: message,
           createdAt: serverTimestamp(),
         }
       );
@@ -169,9 +161,9 @@ function Chat() {
       const newChat = { id: chatId, title: message };
       setChats((prev) => [newChat, ...prev]);
     }
+
     if (selectedFiles.length > 0) {
       for (const file of selectedFiles) {
-
         const fileMsg = {
           role: "user",
           isFile: true,
@@ -182,14 +174,7 @@ function Chat() {
         setMessages((prev) => [...prev, fileMsg]);
 
         await addDoc(
-          collection(
-            db,
-            "users",
-            uid,
-            "chats",
-            chatId,
-            "messages"
-          ),
+          collection(db, "users", uid, "chats", chatId, "messages"),
           {
             ...fileMsg,
             createdAt: serverTimestamp(),
@@ -199,6 +184,7 @@ function Chat() {
 
       setSelectedFiles([]);
     }
+
     const currentText = message;
 
     if (message.trim()) {
@@ -210,14 +196,7 @@ function Chat() {
       setMessages((prev) => [...prev, userMsg]);
 
       await addDoc(
-        collection(
-          db,
-          "users",
-          uid,
-          "chats",
-          chatId,
-          "messages"
-        ),
+        collection(db, "users", uid, "chats", chatId, "messages"),
         {
           ...userMsg,
           createdAt: serverTimestamp(),
@@ -227,7 +206,6 @@ function Chat() {
 
     setMessage("");
 
-    // 🔥 AUTO UPDATE CHAT TITLE ON FIRST MESSAGE ONLY
     const chat = chats.find((c) => c.id === chatId);
 
     if (chat?.title === "New Chat") {
@@ -235,73 +213,65 @@ function Chat() {
     }
 
     try {
-  const response = await fetch(
-    "http://localhost:8000/chat",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: currentText,
-      }),
+      const response = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: currentText,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Backend error");
+      }
+
+      const data = await response.json();
+
+      // FIX: use data.image_urls (plural) to match the API response,
+      // and store as imageUrls to match the MessageBubble prop name.
+      // Also handle the no-match case where data.recipe is null/undefined
+      // and the API returns { answer: "...", image_url: null } instead.
+      const botMsg = data.recipe
+        ? {
+            role: "assistant",
+            recipe: data.recipe,
+            imageUrls: data.image_urls || [],
+          }
+        : {
+            role: "assistant",
+            text: data.answer || "No matching recipe found.",
+          };
+
+      setMessages((prev) => [...prev, botMsg]);
+
+      await addDoc(
+        collection(db, "users", uid, "chats", chatId, "messages"),
+        {
+          ...botMsg,
+          createdAt: serverTimestamp(),
+        }
+      );
+    } catch (error) {
+      console.error(error);
+
+      const errorMsg = {
+        role: "assistant",
+        text: "Failed to connect to AI backend",
+      };
+
+      setMessages((prev) => [...prev, errorMsg]);
+
+      await addDoc(
+        collection(db, "users", uid, "chats", chatId, "messages"),
+        {
+          ...errorMsg,
+          createdAt: serverTimestamp(),
+        }
+      );
     }
-  );
-
-  if (!response.ok) {
-    throw new Error("Backend error");
-  }
-
-  const data = await response.json();
-
-  const botMsg = {
-    role: "assistant",
-    recipe: data.recipe,
-    imageUrl: data.image_url || [],
   };
-
-  setMessages((prev) => [...prev, botMsg]);
-
-  await addDoc(
-    collection(
-      db,
-      "users",
-      uid,
-      "chats",
-      chatId,
-      "messages"
-    ),
-    {
-      ...botMsg,
-      createdAt: serverTimestamp(),
-    }
-  );
-} catch (error) {
-  console.error(error);
-
-  const errorMsg = {
-    role: "assistant",
-    text: "Failed to connect to AI backend",
-  };
-
-  setMessages((prev) => [...prev, errorMsg]);
-
-  await addDoc(
-    collection(
-      db,
-      "users",
-      uid,
-      "chats",
-      chatId,
-      "messages"
-    ),
-    {
-      ...errorMsg,
-      createdAt: serverTimestamp(),
-    }
-  );
-}
-};
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -313,9 +283,9 @@ function Chat() {
 
     setSelectedFiles(Array.from(files));
   };
+
   return (
     <div className="chat-container">
-
       <Sidebar
         chats={chats}
         createChat={createChat}
@@ -326,7 +296,6 @@ function Chat() {
       />
 
       <div className="chat-main">
-
         <div className="topbar">
           <button
             className="sidebar-toggle"
@@ -348,16 +317,15 @@ function Chat() {
 
           {messages.map((m, i) => (
             <MessageBubble
-               key={i}
-               role={m.role}
-               text={m.text}
-               recipe={m.recipe}
-               imageUrls={m.imageUrls}
-               fileUrl={m.fileUrl}
-               fileName={m.fileName}
-               isFile={m.isFile}
+              key={i}
+              role={m.role}
+              text={m.text}
+              recipe={m.recipe}
+              imageUrls={m.imageUrls}
+              fileUrl={m.fileUrl}
+              fileName={m.fileName}
+              isFile={m.isFile}
             />
-
           ))}
         </div>
 

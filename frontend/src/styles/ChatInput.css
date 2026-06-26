@@ -1,209 +1,130 @@
+/* chatInput.css — matches warm cream/blush bakery theme */
+
 .chat-input {
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  padding: 18px 24px;
-
-  background: rgba(17, 24, 39, 0.95);
-
-  border-top: 1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  gap: 10px;
+  padding: 16px 20px;
+  background: #FDF6EE;
+  border-top: 1.5px solid #E8C4B0;
+  box-shadow: 0 -2px 10px rgba(92,46,14,0.06);
 }
 
-/* Input Field */
 .chat-input input {
   flex: 1;
-
-  padding: 14px 18px;
-
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #F5EDE0;
+  border: 1.5px solid #E8C4B0;
+  border-radius: 24px;
+  padding: 13px 20px;
+  color: #3B1F0C;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
   outline: none;
-
-  border-radius: 16px;
-
-  background: rgba(255,255,255,0.06);
-
-  color: white;
-
-  font-size: 15px;
-
-  transition: all 0.3s ease;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .chat-input input::placeholder {
-  color: rgba(255,255,255,0.5);
+  color: #A07858;
 }
 
 .chat-input input:focus {
-  border-color: #3b82f6;
-
-  box-shadow:
-    0 0 0 3px rgba(59,130,246,0.15);
-
-  background: rgba(255,255,255,0.08);
+  border-color: #B5652A;
+  box-shadow: 0 0 0 3px rgba(181,101,42,0.12);
 }
 
-/* Attachment Button */
 .attach-btn {
-  width: 48px;
-  height: 48px;
-
-  border: none;
-  border-radius: 14px;
-
-  background: rgba(255,255,255,0.08);
-
-  color: white;
-
-  font-size: 24px;
+  width: 42px;
+  height: 42px;
+  background: #F2DDD0;
+  border: 1.5px solid #E8C4B0;
+  border-radius: 50%;
+  color: #B5652A;
+  font-size: 18px;
   font-weight: 600;
-
   cursor: pointer;
-
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
 }
 
 .attach-btn:hover {
-  background: #2563eb;
-
-  transform: rotate(90deg);
-
-  box-shadow:
-    0 8px 20px rgba(37,99,235,0.35);
+  background: #E8C4B0;
+  border-color: #B5652A;
+  transform: rotate(15deg);
 }
 
-/* Send Button */
 .chat-input button:last-child {
-  padding: 13px 24px;
-
+  width: 44px;
+  height: 44px;
+  background: #5C2E0E;
+  color: #FDF6EE;
   border: none;
-  border-radius: 14px;
-
-  background: linear-gradient(
-    135deg,
-    #3b82f6,
-    #2563eb
-  );
-
-  color: white;
-
-  font-weight: 600;
-  font-size: 15px;
-
+  border-radius: 50%;
+  font-size: 18px;
   cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  box-shadow:
-    0 6px 18px rgba(59,130,246,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  box-shadow: 0 3px 10px rgba(92,46,14,0.2);
 }
 
 .chat-input button:last-child:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 25px rgba(59,130,246,0.45);
+  background: #7A3B18;
+  transform: scale(1.07);
+  box-shadow: 0 5px 14px rgba(92,46,14,0.28);
 }
 
-/* File Preview Container */
 .file-preview {
-  margin: 12px 20px;
-
-  padding: 15px;
-
-  border-radius: 16px;
-
-  background: rgba(255,255,255,0.06);
-
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  animation: fadeUp 0.25s ease;
+  margin: 8px 20px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #F2DDD0;
+  border: 1.5px solid #E8C4B0;
+  animation: fadeUp 0.2s ease;
 }
 
-/* Individual File */
 .preview-item {
-  padding: 10px 14px;
-
-  margin-bottom: 8px;
-
+  background: white;
+  border: 1px solid #E8C4B0;
   border-radius: 10px;
-
-  background: rgba(59,130,246,0.12);
-
-  color: white;
-
-  font-size: 14px;
-
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #7A5C45;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Cancel Button */
 .cancel-files {
-  margin-top: 10px;
-
-  padding: 10px 16px;
-
+  background: #B5652A;
+  color: white;
   border: none;
   border-radius: 10px;
-
-  background: #ef4444;
-
-  color: white;
-
+  padding: 8px 14px;
+  font-size: 13px;
   font-weight: 600;
-
   cursor: pointer;
-
-  transition: all 0.3s ease;
+  margin-top: 8px;
+  transition: background 0.2s;
 }
 
 .cancel-files:hover {
-  background: #dc2626;
-
-  transform: translateY(-2px);
+  background: #7A3B18;
 }
 
-/* Animation */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-
-  .chat-input {
-    padding: 12px;
-  }
-
-  .chat-input input {
-    font-size: 14px;
-  }
-
-  .attach-btn {
-    width: 42px;
-    height: 42px;
-  }
-
-  .chat-input button:last-child {
-    padding: 12px 18px;
-  }
-
-  .file-preview {
-    margin: 10px;
-  }
+  .chat-input { padding: 12px; }
+  .chat-input input { font-size: 13px; }
+  .attach-btn { width: 38px; height: 38px; }
+  .chat-input button:last-child { width: 40px; height: 40px; }
 }

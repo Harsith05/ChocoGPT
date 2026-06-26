@@ -1,8 +1,5 @@
-import os
 import uuid
 import fitz
-
-from PIL import Image
 
 from sentence_transformers import SentenceTransformer
 
@@ -20,13 +17,6 @@ from qdrant_client.models import (
 PDF_PATH = "data/Bakers-Choice-Recipe-Book.pdf"
 
 COLLECTION_NAME = "recipes"
-
-IMAGE_DIR = "extracted_images"
-
-os.makedirs(
-    IMAGE_DIR,
-    exist_ok=True
-)
 
 # ==========================================
 # EMBEDDING MODEL
@@ -124,16 +114,7 @@ while page < len(pdf):
 
     if title:
 
-        recipe_text = page_text
-
         content_page = page + 1
-
-        if content_page < len(pdf):
-
-            recipe_text += "\n\n"
-            recipe_text += pdf[
-                content_page
-            ].get_text()
 
         recipes.append(
             {
@@ -164,88 +145,20 @@ for recipe in recipes:
 
     content_page = recipe["content_page"]
 
-    title_text = pdf[title_page].get_text() 
+    title_text = pdf[title_page].get_text()
 
     content_text = ""
 
     if content_page < len(pdf):
-       content_text = pdf[
-        content_page
+        content_text = pdf[
+            content_page
         ].get_text()
 
     full_text = (
-    title_text +
-    "\n\n" +
-    content_text
-     )
-    # ======================================
-    # EXTRACT IMAGES
-    # ======================================
-
-    image_paths = []
-
-    
-
-    pages_to_scan = [title_page]
-
-    if (
-       content_page is not None
-       and content_page < len(pdf)
-       ):
-        pages_to_scan.append(
-        content_page
+        title_text +
+        "\n\n" +
+        content_text
     )
-
-    for page_num in pages_to_scan:
-
-      page_obj = pdf[page_num]
-
-    images = page_obj.get_images(
-            full=True
-        )
-
-    for idx, img in enumerate(images):
-
-            try:
-
-                xref = img[0]
-
-                base_image = pdf.extract_image(
-                    xref
-                )
-
-                image_bytes = base_image[
-                    "image"
-                ]
-
-                ext = base_image[
-                    "ext"
-                ]
-
-                filename = (
-                    f"{uuid.uuid4()}.{ext}"
-                )
-
-                image_path = os.path.join(
-                    IMAGE_DIR,
-                    filename
-                )
-
-                with open(
-                    image_path,
-                    "wb"
-                ) as f:
-
-                    f.write(
-                        image_bytes
-                    )
-
-                image_paths.append(
-                    image_path
-                )
-
-            except:
-                pass
 
     # ======================================
     # EMBEDDING
@@ -257,20 +170,8 @@ for recipe in recipes:
     )
 
     payload = {
-        "recipe_name":
-            recipe["title"],
-
-        "recipe_text":
-            full_text,
-
-        "image_paths":
-            image_paths,
-
-        "title_page":
-            title_page + 1,
-
-        "content_page":
-            content_page + 1
+        "recipe_name": recipe["title"],
+        "recipe_text": full_text
     }
 
     points.append(
