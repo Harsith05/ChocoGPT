@@ -6,9 +6,33 @@ function MessageBubble({
   fileUrl,
   fileName,
   isFile,
+  isImage,
+  detectedCakeType,
 }) {
 
   if (isFile) {
+    if (isImage && fileUrl) {
+      return (
+        <div className={`message ${role}`}>
+          <img
+            src={fileUrl}
+            alt={fileName}
+            style={{
+              maxWidth: "220px",
+              maxHeight: "220px",
+              objectFit: "cover",
+              borderRadius: "10px",
+              display: "block",
+              marginBottom: text ? "6px" : 0,
+              cursor: "pointer",
+            }}
+            onClick={() => window.open(fileUrl, "_blank")}
+          />
+          {text && text !== "📷 Image" && <p>{text}</p>}
+        </div>
+      );
+    }
+
     return (
       <div className={`message ${role}`}>
         <a href={fileUrl} target="_blank" rel="noreferrer">
@@ -23,6 +47,12 @@ function MessageBubble({
   if (recipe) {
     return (
       <div className={`message ${role}`}>
+        {detectedCakeType && (
+          <p style={{ fontSize: "0.85em", opacity: 0.7, marginBottom: "4px" }}>
+            🎂 Detected: {detectedCakeType}
+          </p>
+        )}
+
         <h2>{recipe.recipe_name}</h2>
 
         <p>
@@ -91,6 +121,11 @@ function MessageBubble({
   // Fallback: plain text bubble (errors, no-match responses)
   return (
     <div className={`message ${role}`}>
+      {detectedCakeType && (
+        <p style={{ fontSize: "0.85em", opacity: 0.7, marginBottom: "4px" }}>
+          🎂 Detected: {detectedCakeType}
+        </p>
+      )}
       {text}
     </div>
   );

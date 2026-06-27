@@ -10,13 +10,6 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/storage";
-
-import { storage } from "./firebase/config";
 
 import { signOut } from "firebase/auth";
 import { db, auth } from "./firebase/config";
@@ -150,7 +143,7 @@ function Chat() {
       const docRef = await addDoc(
         collection(db, "users", uid, "chats"),
         {
-          title: message,
+          title: message || "Image chat",
           createdAt: serverTimestamp(),
         }
       );
@@ -158,12 +151,55 @@ function Chat() {
       chatId = docRef.id;
       setCurrentChatId(chatId);
 
-      const newChat = { id: chatId, title: message };
+      const newChat = { id: chatId, title: message || "Image chat" };
       setChats((prev) => [newChat, ...prev]);
     }
 
-    if (selectedFiles.length > 0) {
-      for (const file of selectedFiles) {
+    // Pull out the first image among selected files (cake photo).
+    // Any other non-image files keep the old placeholder behavior.
+    const imageFile = selectedFiles.find((f) =>
+      f.type?.startsWith("image/")
+    );
+    const otherFiles = selectedFiles.filter((f) => f !== imageFile);
+
+    if (imageFile) {
+      // NOTE: Firebase Storage requires the Blaze (pay-as-you-go) plan —
+      // on the free Spark plan, Storage calls fail with CORS/402/403
+      // errors. We skip Storage entirely and use a local blob URL just
+      // to show the thumbnail in this browser tab/session. It is NOT
+      // persisted: it won't survive a refresh or show on another device,
+      // and we don't send it to Firestore (a blob: URL is meaningless
+      // outside this tab).
+      const localPreviewUrl = URL.createObjectURL(imageFile);
+
+      const imageMsg = {
+        role: "user",
+        isFile: true,
+        isImage: true,
+        fileName: imageFile.name,
+        fileUrl: localPreviewUrl,
+        text: message || "📷 Image",
+      };
+
+      setMessages((prev) => [...prev, imageMsg]);
+
+      // Save a lightweight placeholder to Firestore history (no blob URL,
+      // since it wouldn't resolve in a future session anyway).
+      await addDoc(
+        collection(db, "users", uid, "chats", chatId, "messages"),
+        {
+          role: "user",
+          isFile: true,
+          isImage: true,
+          fileName: imageFile.name,
+          text: message || "📷 Image",
+          createdAt: serverTimestamp(),
+        }
+      );
+    }
+
+    if (otherFiles.length > 0) {
+      for (const file of otherFiles) {
         const fileMsg = {
           role: "user",
           isFile: true,
@@ -181,13 +217,15 @@ function Chat() {
           }
         );
       }
-
-      setSelectedFiles([]);
     }
+
+    setSelectedFiles([]);
 
     const currentText = message;
 
-    if (message.trim()) {
+    // Only show a separate text bubble if there's no image attached
+    // (the image bubble above already carries the typed caption).
+    if (message.trim() && !imageFile) {
       const userMsg = {
         role: "user",
         text: message,
@@ -209,19 +247,35 @@ function Chat() {
     const chat = chats.find((c) => c.id === chatId);
 
     if (chat?.title === "New Chat") {
-      updateChatTitle(chatId, currentText);
+      updateChatTitle(chatId, currentText || "Image chat");
     }
 
     try {
-      const response = await fetch("http://localhost:8000/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          query: currentText,
-        }),
-      });
+      let response;
+
+      if (imageFile) {
+        // Image present -> hit the vision + RAG endpoint.
+        // Qwen2.5-VL identifies the cake, then the same hybrid_retrieve
+        // pipeline used for text queries runs on the detected name.
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("query", currentText);
+
+        response = await fetch("http://localhost:8000/chat-image", {
+          method: "POST",
+          body: formData,
+        });
+      } else {
+        response = await fetch("http://localhost:8000/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            query: currentText,
+          }),
+        });
+      }
 
       if (!response.ok) {
         throw new Error("Backend error");
@@ -233,15 +287,18 @@ function Chat() {
       // and store as imageUrls to match the MessageBubble prop name.
       // Also handle the no-match case where data.recipe is null/undefined
       // and the API returns { answer: "...", image_url: null } instead.
+      // detected_cake_type is only present on /chat-image responses.
       const botMsg = data.recipe
         ? {
             role: "assistant",
             recipe: data.recipe,
             imageUrls: data.image_urls || [],
+            detectedCakeType: data.detected_cake_type || null,
           }
         : {
             role: "assistant",
             text: data.answer || "No matching recipe found.",
+            detectedCakeType: data.detected_cake_type || null,
           };
 
       setMessages((prev) => [...prev, botMsg]);
@@ -325,6 +382,8 @@ function Chat() {
               fileUrl={m.fileUrl}
               fileName={m.fileName}
               isFile={m.isFile}
+              isImage={m.isImage}
+              detectedCakeType={m.detectedCakeType}
             />
           ))}
         </div>

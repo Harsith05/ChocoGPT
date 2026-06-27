@@ -2,7 +2,7 @@ import os
 import json
 import httpx
 
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -61,6 +61,9 @@ embedder = SentenceTransformer("BAAI/bge-m3")
 print("Loading reranker (BGE-reranker-v2-m3)...")
 reranker = CrossEncoder("BAAI/bge-reranker-v2-m3")
 
+# Cake detection runs through Gemini (multimodal) — see detect_cake_type()
+# below. No local vision model to load.
+
 # =====================================================
 # CLIENTS
 # =====================================================
@@ -75,6 +78,46 @@ qdrant = QdrantClient(url=QDRANT_URL)
 
 class ChatRequest(BaseModel):
     query: str
+
+# =====================================================
+# VISION  (Gemini cake/dessert detection)
+# =====================================================
+
+def detect_cake_type(image_bytes: bytes, mime_type: str = "image/jpeg") -> str:
+    """
+    Calls Gemini (multimodal) to identify the cake/dessert in an
+    uploaded image. Returns a short cake name string, e.g. "Red Velvet
+    Cake". This string is then used as the retrieval query against
+    Qdrant, exactly like a typed user query would be.
+
+    Replaces the earlier local Ollama/Qwen2.5-VL approach — CPU-only
+    inference there was too slow (100s+ per image) and unreliable.
+    Gemini already has an API key configured for recipe generation,
+    so this reuses the same client with no new dependencies.
+    """
+
+    prompt = (
+        "Look at this image of a cake or dessert. "
+        "Identify the specific type/name of the cake (e.g. 'Chocolate "
+        "Fudge Cake', 'Red Velvet Cake', 'Carrot Cake', 'Cheesecake'). "
+        "Reply with ONLY the cake name, nothing else. No punctuation, "
+        "no explanation."
+    )
+
+    response = gemini_client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=[
+            prompt,
+            types.Part.from_bytes(data=image_bytes, mime_type=mime_type),
+        ],
+    )
+
+    output_text = (response.text or "").strip()
+
+    print(f"[Gemini Vision] Detected cake type: {output_text}")
+
+    return output_text
+
 
 # =====================================================
 # HYBRID RETRIEVAL  (dense + keyword filter + rerank)
@@ -479,6 +522,78 @@ async def chat(request: ChatRequest):
     return {
         "recipe":     recipe_json,
         "image_urls": image_urls
+    }
+
+
+# =====================================================
+# CHAT-WITH-IMAGE ENDPOINT
+# (Gemini vision detects cake type -> feeds into same RAG pipeline)
+# =====================================================
+
+@app.post("/chat-image")
+async def chat_image(
+    file: UploadFile = File(...),
+    query: str = Form(default=""),
+):
+    """
+    Accepts an uploaded cake/dessert image (any common type: jpg, png,
+    webp, etc.). The browser-supplied content type is passed through to
+    Gemini so it correctly decodes whatever format was actually uploaded.
+
+    1. Gemini (multimodal) identifies the cake type from the image.
+    2. That detected name (plus any optional user text) becomes the
+       retrieval query, fed into the *same* hybrid_retrieve() used by
+       the text-only /chat endpoint.
+    3. The rest of the pipeline (Gemini recipe JSON + SerpAPI images)
+       is unchanged.
+    """
+
+    image_bytes = await file.read()
+    mime_type = file.content_type or "image/jpeg"
+
+    try:
+        detected_name = detect_cake_type(image_bytes, mime_type=mime_type)
+    except Exception as e:
+        print(f"[Gemini Vision] Error: {e}")
+        return {
+            "answer": "Could not analyze the image. Please try again.",
+            "image_urls": []
+        }
+
+    # Combine detected cake name with any text the user also typed
+    # (e.g. "what type of cake is this and give me the recipe")
+    effective_query = detected_name
+    if query.strip():
+        effective_query = f"{detected_name} {query.strip()}"
+
+    # 1. Hybrid retrieve  (identical call used by /chat)
+    recipe = hybrid_retrieve(effective_query)
+
+    if recipe is None:
+        return {
+            "answer": f"Detected '{detected_name}', but no matching recipe found.",
+            "detected_cake_type": detected_name,
+            "image_urls": []
+        }
+
+    context = build_context(recipe)
+
+    print("\n===== IMAGE-DETECTED CAKE TYPE =====")
+    print(detected_name)
+    print("\n===== RETRIEVED RECIPE =====")
+    print(recipe.get("recipe_name"))
+    print("=====================================\n")
+
+    # 2. Generate answer + fetch images via tool calling (same as /chat)
+    recipe_json, image_urls = generate_answer(
+        effective_query,
+        context
+    )
+
+    return {
+        "recipe":             recipe_json,
+        "image_urls":         image_urls,
+        "detected_cake_type": detected_name,
     }
 
 
