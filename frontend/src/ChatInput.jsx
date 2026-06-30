@@ -7,6 +7,7 @@ function ChatInput({
   handleFileUpload,
   selectedFiles,
   setSelectedFiles,
+  isLoading,
 }) {
 
   const fileRef = useRef();
@@ -57,6 +58,7 @@ function ChatInput({
         <button
           className="attach-btn"
           onClick={() => fileRef.current.click()}
+          disabled={isLoading}
         >
           +
         </button>
@@ -79,19 +81,20 @@ function ChatInput({
 
         <input
           value={message}
-          placeholder="Message ChocoGPT..."
+          placeholder={isLoading ? "Waiting for CocoaGPT..." : "Message ChocoGPT..."}
+          disabled={isLoading}
           onChange={(e) =>
             setMessage(e.target.value)
           }
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" && !isLoading) {
               sendMessage();
             }
           }}
         />
 
-        <button onClick={sendMessage}>
-          Send
+        <button onClick={sendMessage} disabled={isLoading}>
+          {isLoading ? "···" : "Send"}
         </button>
 
       </div>

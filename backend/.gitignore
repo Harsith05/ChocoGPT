@@ -4,5 +4,10 @@ extracted_images
 venv
 ingest.py
 main.py
+cleaning_dataset.py
+scrape_image.py
+data/rejected
+data/vision_dataset
+data/vision_dataset.zip
 
 

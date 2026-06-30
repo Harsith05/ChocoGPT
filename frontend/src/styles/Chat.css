@@ -1,19 +1,24 @@
 /* =====================================================
-   BAKING COPILOT THEME — Warm Cream & Blush
+   COCOAGPT THEME — Honey & Caramel Patisserie
+   A warm, light bakery palette built around #EFBC75 as the
+   hero accent (buttons, borders, highlights), with a cream
+   base for readability and a subtle seamless cake/cupcake/
+   cookie pattern as background texture behind the chat.
+
    Palette:
-     --cream-bg:    #F5EDE0  (warm parchment background)
-     --cream-lt:    #FDF6EE  (light frosting)
-     --choco:       #5C2E0E  (dark chocolate brown)
-     --choco-mid:   #7A3B18  (medium chocolate)
-     --caramel:     #B5652A  (caramel accent)
-     --blush:       #E8C4B0  (rose frosting)
-     --blush-lt:    #F2DDD0  (light blush)
-     --sand:        #D4A882  (warm sand)
-     --text-dark:   #3B1F0C  (deep cocoa text)
-     --text-mid:    #7A5C45  (mid brown text)
+     --honey-500:  #EFBC75  (primary accent — buttons, borders, highlights)
+     --honey-600:  #DDA655  (deeper honey, hover states)
+     --honey-700:  #C99A56  (darkest honey, pattern strokes, active states)
+     --honey-300:  #F6D9A8  (pale honey, subtle fills)
+     --cream-100:  #FFF8EC  (page background, warm off-white)
+     --cream-200:  #FBEEDA  (panel/card background)
+     --cream-300:  #F3E2C2  (raised surface / hover)
+     --cocoa-700:  #6B4423  (primary text — warm dark brown)
+     --cocoa-500:  #8B5E34  (secondary text)
+     --cocoa-300:  #B98F5E  (muted text, borders)
 ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -22,32 +27,35 @@
 }
 
 :root {
-  --cream-bg:   #F5EDE0;
-  --cream-lt:   #FDF6EE;
-  --cream-mid:  #EDE0D0;
-  --choco:      #5C2E0E;
-  --choco-mid:  #7A3B18;
-  --caramel:    #B5652A;
-  --caramel-lt: #C97A3E;
-  --blush:      #E8C4B0;
-  --blush-lt:   #F2DDD0;
-  --sand:       #D4A882;
-  --text-dark:  #3B1F0C;
-  --text-mid:   #7A5C45;
-  --text-light: #A07858;
+  --honey-500:  #EFBC75;
+  --honey-600:  #DDA655;
+  --honey-700:  #C99A56;
+  --honey-300:  #F6D9A8;
+  --cream-100:  #FFF8EC;
+  --cream-200:  #FBEEDA;
+  --cream-300:  #F3E2C2;
+  --cocoa-700:  #6B4423;
+  --cocoa-500:  #8B5E34;
+  --cocoa-300:  #B98F5E;
   --radius-xl:  20px;
   --radius-lg:  14px;
   --radius-md:  10px;
   --radius-sm:  6px;
-  --shadow-sm:  0 2px 8px rgba(92,46,14,0.10);
-  --shadow-md:  0 4px 16px rgba(92,46,14,0.13);
-  --shadow-lg:  0 8px 28px rgba(92,46,14,0.16);
+  --shadow-sm:  0 2px 10px rgba(107,68,35,0.12);
+  --shadow-md:  0 6px 22px rgba(107,68,35,0.16);
+  --shadow-lg:  0 10px 32px rgba(107,68,35,0.20);
+  --shadow-honey: 0 0 0 1px rgba(239,188,117,0.35), 0 8px 28px rgba(107,68,35,0.14);
+
+  /* Seamless cupcake / cake-slice / cookie tile, used as a low-opacity
+     background texture. Pure SVG data-URI — no external image request,
+     no licensing concerns, tiles perfectly at any viewport size. */
+  --bakery-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23C99A56' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.4'%3E%3Cpath d='M18 70 Q18 95 26 95 L50 95 Q58 95 58 70 Z'/%3E%3Cpath d='M18 70 Q22 65 26 70 Q30 65 34 70 Q38 65 42 70 Q46 65 50 70 Q54 65 58 70'/%3E%3Cpath d='M22 55 Q38 35 54 55 Q38 48 22 55 Z'/%3E%3Ccircle cx='38' cy='32' r='2.5' fill='%23C99A56' stroke='none'/%3E%3Cpath d='M105 100 L150 100 L127 58 Z'/%3E%3Cline x1='105' y1='85' x2='141' y2='85'/%3E%3Ccircle cx='127' cy='62' r='3' fill='%23C99A56' stroke='none'/%3E%3Ccircle cx='70' cy='40' r='18'/%3E%3Ccircle cx='64' cy='34' r='1.8' fill='%23C99A56' stroke='none'/%3E%3Ccircle cx='77' cy='38' r='1.8' fill='%23C99A56' stroke='none'/%3E%3Ccircle cx='68' cy='47' r='1.8' fill='%23C99A56' stroke='none'/%3E%3Ccircle cx='78' cy='48' r='1.8' fill='%23C99A56' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  background: var(--cream-bg);
-  color: var(--text-dark);
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream-100);
+  color: var(--cocoa-700);
 }
 
 /* =====================================================
@@ -56,7 +64,7 @@ body {
 .chat-container {
   display: flex;
   height: 100vh;
-  background: var(--cream-bg);
+  background: var(--cream-100);
   overflow: hidden;
 }
 
@@ -65,15 +73,15 @@ body {
 ===================================================== */
 .sidebar {
   width: 270px;
-  background: var(--cream-lt);
-  border-right: 1.5px solid var(--blush);
+  background: var(--cream-200);
+  border-right: 1px solid var(--cream-300);
   display: flex;
   flex-direction: column;
   padding: 20px 14px;
   gap: 12px;
   overflow-y: auto;
   flex-shrink: 0;
-  box-shadow: 2px 0 12px rgba(92,46,14,0.07);
+  box-shadow: 2px 0 16px rgba(107,68,35,0.06);
   transition: width 0.3s ease;
 }
 
@@ -85,7 +93,7 @@ body {
 
 .sidebar::-webkit-scrollbar { width: 4px; }
 .sidebar::-webkit-scrollbar-thumb {
-  background: var(--blush);
+  background: var(--honey-500);
   border-radius: 4px;
 }
 
@@ -95,19 +103,19 @@ body {
   align-items: center;
   gap: 10px;
   padding: 4px 2px 12px;
-  border-bottom: 1px solid var(--blush);
+  border-bottom: 1px solid var(--cream-300);
   margin-bottom: 4px;
 }
 
 /* New Chat button */
 .new-chat {
   width: 100%;
-  background: var(--choco);
-  color: var(--cream-lt);
+  background: linear-gradient(135deg, var(--honey-500), var(--honey-600));
+  color: var(--cocoa-700);
   border: none;
   border-radius: var(--radius-lg);
   padding: 13px 16px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
@@ -121,9 +129,9 @@ body {
 }
 
 .new-chat:hover {
-  background: var(--choco-mid);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 18px rgba(239,188,117,0.4);
+  filter: brightness(1.04);
 }
 
 /* Chat list */
@@ -137,19 +145,19 @@ body {
 
 .chat-list::-webkit-scrollbar { width: 3px; }
 .chat-list::-webkit-scrollbar-thumb {
-  background: var(--blush);
+  background: var(--honey-500);
   border-radius: 4px;
 }
 
 /* Chat items */
 .chat-item {
   background: transparent;
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   padding: 10px 14px;
   cursor: pointer;
   font-size: 13px;
-  color: var(--text-mid);
+  color: var(--cocoa-500);
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -158,15 +166,15 @@ body {
 }
 
 .chat-item:hover {
-  background: var(--blush-lt);
-  border-color: var(--blush);
-  color: var(--text-dark);
+  background: var(--cream-300);
+  border-color: var(--honey-500);
+  color: var(--cocoa-700);
 }
 
 .chat-item.active {
-  background: var(--blush-lt);
-  border-color: var(--caramel);
-  color: var(--choco);
+  background: var(--cream-300);
+  border-color: var(--honey-600);
+  color: var(--cocoa-700);
   font-weight: 600;
 }
 
@@ -181,10 +189,10 @@ body {
 .delete-btn {
   background: transparent;
   border: none;
-  color: var(--sand);
+  color: var(--cocoa-300);
   font-size: 14px;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: all 0.2s;
   padding: 2px;
   flex-shrink: 0;
@@ -193,7 +201,7 @@ body {
 
 .delete-btn:hover {
   opacity: 1;
-  color: var(--caramel);
+  color: var(--honey-700);
 }
 
 /* =====================================================
@@ -204,7 +212,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--cream-bg);
+  background: var(--cream-100);
 }
 
 /* =====================================================
@@ -215,16 +223,16 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 14px 24px;
-  background: var(--cream-lt);
-  border-bottom: 1.5px solid var(--blush);
+  background: var(--cream-200);
+  border-bottom: 1px solid var(--cream-300);
   box-shadow: var(--shadow-sm);
   z-index: 10;
 }
 
 .sidebar-toggle {
   background: transparent;
-  border: 1.5px solid var(--blush);
-  color: var(--text-mid);
+  border: 1px solid var(--cream-300);
+  color: var(--cocoa-500);
   border-radius: var(--radius-sm);
   padding: 6px 10px;
   font-size: 16px;
@@ -233,48 +241,47 @@ body {
 }
 
 .sidebar-toggle:hover {
-  background: var(--blush-lt);
-  border-color: var(--caramel);
-  color: var(--choco);
+  background: var(--cream-300);
+  border-color: var(--honey-600);
+  color: var(--cocoa-700);
 }
 
 .title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
   font-weight: 700;
-  color: var(--choco);
   letter-spacing: 0.5px;
-  background: none;
-  -webkit-text-fill-color: var(--choco);
+  color: var(--cocoa-700);
 }
 
 .logout-btn {
-  background: var(--choco);
-  color: var(--cream-lt);
-  border: none;
+  background: transparent;
+  color: var(--cocoa-700);
+  border: 1px solid var(--honey-600);
   border-radius: var(--radius-lg);
   padding: 9px 20px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .logout-btn:hover {
-  background: var(--choco-mid);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  background: var(--honey-500);
+  color: var(--cocoa-700);
+  box-shadow: 0 4px 14px rgba(239,188,117,0.4);
 }
 
 .logout-btn::before { content: none; }
 
 /* =====================================================
    MESSAGES AREA
+   Subtle bakery-icon texture sits behind the conversation —
+   low opacity so it reads as warmth/texture, not noise.
 ===================================================== */
 .messages {
   flex: 1;
@@ -283,23 +290,30 @@ body {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  position: relative;
+  background-color: var(--cream-100);
+  background-image: var(--bakery-pattern);
+  background-repeat: repeat;
+  background-size: 180px 180px;
 }
 
 .messages::-webkit-scrollbar { width: 5px; }
 .messages::-webkit-scrollbar-track { background: transparent; }
 .messages::-webkit-scrollbar-thumb {
-  background: var(--blush);
+  background: var(--honey-500);
   border-radius: 4px;
 }
 
 /* Empty state */
 .empty {
   text-align: center;
-  color: var(--text-light);
+  color: var(--cocoa-500);
   font-style: italic;
   margin: auto;
   font-size: 15px;
   opacity: 0.8;
+  position: relative;
+  z-index: 1;
 }
 
 /* =====================================================
@@ -313,6 +327,8 @@ body {
   line-height: 1.65;
   animation: fadeSlideIn 0.22s ease;
   word-wrap: break-word;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fadeSlideIn {
@@ -320,84 +336,240 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* User bubble — chocolate brown */
+/* User bubble — solid honey-on-cream */
 .message.user {
   align-self: flex-end;
-  background: var(--choco);
-  color: var(--cream-lt);
+  background: linear-gradient(135deg, var(--honey-500), var(--honey-600));
+  color: var(--cocoa-700);
+  border: 1px solid var(--honey-600);
   border-bottom-right-radius: 4px;
   box-shadow: var(--shadow-md);
 }
 
-/* Assistant bubble — warm cream card */
+/* Assistant bubble — cream card with honey hairline */
 .message.assistant {
   align-self: flex-start;
-  background: var(--cream-lt);
-  color: var(--text-dark);
-  border: 1.5px solid var(--blush);
+  background: var(--cream-200);
+  color: var(--cocoa-700);
+  border: 1px solid var(--cream-300);
   border-bottom-left-radius: 4px;
   box-shadow: var(--shadow-md);
 }
 
+/* =====================================================
+   RECIPE CARD — the signature treatment
+   Honey corner flourishes (top-left / bottom-right) and a
+   foil-stamp divider under the title distinguish a fresh
+   RAG recipe card from a plain chat bubble at a glance.
+===================================================== */
+.message.assistant.recipe-card,
+.message.assistant:has(h2) {
+  border-color: var(--honey-600);
+  box-shadow: var(--shadow-honey);
+  padding: 22px 22px 20px;
+  background: var(--cream-200);
+}
+
+.message.assistant.recipe-card::before,
+.message.assistant.recipe-card::after,
+.message.assistant:has(h2)::before,
+.message.assistant:has(h2)::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--honey-600);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.message.assistant.recipe-card::before,
+.message.assistant:has(h2)::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.message.assistant.recipe-card::after,
+.message.assistant:has(h2)::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
 /* Recipe card typography */
 .message.assistant h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
   font-weight: 700;
-  color: var(--choco);
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1.5px solid var(--blush);
+  color: var(--cocoa-700);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+/* Foil-stamp divider under the recipe title */
+.message.assistant h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--honey-600), transparent 70%);
 }
 
 .message.assistant h3 {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--caramel);
-  margin: 14px 0 7px;
+  color: var(--honey-700);
+  margin: 18px 0 9px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message.assistant h3::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--honey-700);
+  opacity: 0.7;
 }
 
 .message.assistant p {
-  color: var(--text-mid);
+  color: var(--cocoa-500);
   margin-bottom: 5px;
   font-size: 13.5px;
 }
 
 .message.assistant p strong {
-  color: var(--choco-mid);
+  color: var(--cocoa-700);
   font-weight: 700;
 }
 
 .message.assistant ul,
 .message.assistant ol {
-  padding-left: 18px;
+  padding-left: 4px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
+  list-style: none;
 }
 
 .message.assistant li {
-  color: var(--text-mid);
+  color: var(--cocoa-500);
   font-size: 13.5px;
   line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.message.assistant ul li::marker { color: var(--caramel); }
-.message.assistant ol li::marker {
-  color: var(--caramel);
+/* Decorative ingredient bullet — small gold glyph instead of a dot.
+   Suppressed when the item already carries a JS-rendered emoji icon
+   (see MessageBubble.jsx's has-icon class) to avoid a doubled bullet. */
+.message.assistant ul li::before {
+  content: "✦";
+  color: var(--honey-700);
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.message.assistant ul li.has-icon::before {
+  content: none;
+}
+
+/* Numbered instruction steps — honey numeral badges */
+.message.assistant ol {
+  counter-reset: step;
+}
+
+.message.assistant ol li {
+  counter-increment: step;
+}
+
+.message.assistant ol li::before {
+  content: counter(step);
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--honey-600);
+  background: var(--cream-100);
+  color: var(--honey-700);
+  font-size: 11px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
 }
 
 /* File link */
 .message a {
-  color: var(--caramel);
+  color: var(--honey-700);
   font-weight: 600;
   text-decoration: none;
 }
 .message a:hover { text-decoration: underline; }
+
+/* =====================================================
+   LOADING INDICATOR — animated whisk + cycling status text
+===================================================== */
+.message.loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+}
+
+.whisk-spinner {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: inline-block;
+  animation: whisk-spin 1.1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  color: var(--honey-700);
+}
+
+@keyframes whisk-spin {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(200deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 13.5px;
+  color: var(--cocoa-500);
+  font-style: italic;
+}
+
+.loading-dots span {
+  animation: dot-pulse 1.4s infinite;
+  opacity: 0.25;
+  color: var(--cocoa-500);
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-pulse {
+  0%, 80%, 100% { opacity: 0.25; }
+  40% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whisk-spinner { animation: none; }
+  .loading-dots span { animation: none; opacity: 0.6; }
+}
 
 /* =====================================================
    CHAT INPUT BAR
@@ -407,41 +579,43 @@ body {
   align-items: center;
   gap: 10px;
   padding: 16px 20px;
-  background: var(--cream-lt);
-  border-top: 1.5px solid var(--blush);
-  box-shadow: 0 -2px 10px rgba(92,46,14,0.06);
+  background: var(--cream-200);
+  border-top: 1px solid var(--cream-300);
+  box-shadow: 0 -2px 14px rgba(107,68,35,0.06);
+  position: relative;
+  z-index: 1;
 }
 
 .chat-input input {
   flex: 1;
-  background: var(--cream-bg);
-  border: 1.5px solid var(--blush);
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
   border-radius: var(--radius-xl);
   padding: 13px 20px;
-  color: var(--text-dark);
-  font-family: 'Lato', sans-serif;
+  color: var(--cocoa-700);
+  font-family: 'Outfit', sans-serif;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .chat-input input::placeholder {
-  color: var(--text-light);
+  color: var(--cocoa-300);
 }
 
 .chat-input input:focus {
-  border-color: var(--caramel);
-  box-shadow: 0 0 0 3px rgba(181,101,42,0.12);
+  border-color: var(--honey-600);
+  box-shadow: 0 0 0 3px rgba(239,188,117,0.25);
 }
 
 /* Attach button */
 .attach-btn {
   width: 42px;
   height: 42px;
-  background: var(--blush-lt);
-  border: 1.5px solid var(--blush);
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
   border-radius: 50%;
-  color: var(--caramel);
+  color: var(--honey-700);
   font-size: 18px;
   cursor: pointer;
   display: flex;
@@ -452,8 +626,8 @@ body {
 }
 
 .attach-btn:hover {
-  background: var(--blush);
-  border-color: var(--caramel);
+  background: var(--cream-300);
+  border-color: var(--honey-600);
   transform: rotate(15deg);
 }
 
@@ -461,11 +635,12 @@ body {
 .chat-input button:last-child {
   width: 44px;
   height: 44px;
-  background: var(--choco);
-  color: var(--cream-lt);
+  background: linear-gradient(135deg, var(--honey-500), var(--honey-600));
+  color: var(--cocoa-700);
   border: none;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -476,9 +651,14 @@ body {
 }
 
 .chat-input button:last-child:hover {
-  background: var(--choco-mid);
   transform: scale(1.07);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 18px rgba(239,188,117,0.45);
+}
+
+.chat-input button:last-child:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* File preview area */
@@ -486,39 +666,41 @@ body {
   margin: 8px 20px;
   padding: 12px;
   border-radius: var(--radius-lg);
-  background: var(--blush-lt);
-  border: 1.5px solid var(--blush);
+  background: var(--cream-200);
+  border: 1px solid var(--cream-300);
   animation: fadeSlideIn 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .preview-item {
-  background: white;
-  border: 1px solid var(--blush);
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
   border-radius: var(--radius-md);
   padding: 8px 12px;
   margin-bottom: 6px;
   font-size: 13px;
-  color: var(--text-mid);
+  color: var(--cocoa-500);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .cancel-files {
-  background: var(--caramel);
-  color: white;
+  background: var(--honey-500);
+  color: var(--cocoa-700);
   border: none;
   border-radius: var(--radius-md);
   padding: 8px 14px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 8px;
-  transition: background 0.2s;
+  transition: filter 0.2s;
 }
 
 .cancel-files:hover {
-  background: var(--choco-mid);
+  filter: brightness(1.06);
 }
 
 /* =====================================================
@@ -528,6 +710,6 @@ body {
   .sidebar { width: 220px; }
   .message { max-width: 88%; }
   .topbar  { padding: 12px 14px; }
-  .title   { font-size: 17px; }
+  .title   { font-size: 19px; }
   .messages { padding: 16px 12px; }
 }

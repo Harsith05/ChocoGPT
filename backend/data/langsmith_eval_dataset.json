@@ -1,0 +1,942 @@
+{
+  "name": "bakers-choice-recipe-eval",
+  "description": "Evaluation dataset for the Baker's Choice Recipe Book RAG chatbot. Each example pairs a user query with the expected recipe answer (ingredients, instructions, and timing). Multiple paraphrased question variants map to the same canonical answer per recipe so retrieval/generation consistency can be measured across phrasing.",
+  "examples": [
+    {
+      "inputs": {
+        "query": "Give me the Black Forest cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Black Forest Cake with Cream Filling and Cherries",
+        "answer": "Black Forest Cake with Cream Filling and Cherries\n\nIngredients:\n- 2 1/8 cups (225 g) all-purpose flour\n- 3 cups white sugar\n- 3/4 cup cocoa powder\n- 1 1/2 teaspoons (5 g) baking powder\n- 3/4 teaspoon (5 g) baking soda\n- A pinch of salt\n- 3 eggs\n- 1 cup milk\n- 1/2 cup vegetable oil\n- 1 tablespoon vanilla extract\n- 2 (20 oz) cans pitted sour cherries\n- 1/4 cup corn flour\n- 1 teaspoon vanilla extract (for filling)\n- 3 cups heavy whipping cream\n- 1/3 cup icing sugar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease and flour two 9-inch round cake pans; line bottoms with waxed paper.\n2. Combine flour, 2 cups sugar, cocoa, baking powder, baking soda, and salt. Add eggs, milk, oil, and 1 tablespoon vanilla; beat until well blended. Pour batter into prepared pans.\n3. Bake for 35 minutes, or until a toothpick comes out clean. Cool layers in pans 10 minutes, then turn out onto racks to cool completely.\n4. Drain cherries, reserving 1/2 cup juice. Combine juice, cherries, 1 cup sugar, and cornstarch in a saucepan; cook over low heat until thickened. Stir in 1 teaspoon vanilla. Cool.\n5. Beat whipping cream and icing sugar until stiff peaks form.\n6. Split each cake layer in half horizontally. Assemble with layers of frosting and cherry topping, ending with a cake layer. Frost the sides, press crumbs onto the sides, pipe a border, and top with remaining cherry topping.\n\nPrep: 20 mins | Cook: 45 mins | Total: 1:05"
+      },
+      "metadata": {
+        "recipe": "Black Forest Cake with Cream Filling and Cherries",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want the recipe for Black Forest cake with cherries"
+      },
+      "outputs": {
+        "recipe_name": "Black Forest Cake with Cream Filling and Cherries",
+        "answer": "Black Forest Cake with Cream Filling and Cherries\n\nIngredients:\n- 2 1/8 cups (225 g) all-purpose flour\n- 3 cups white sugar\n- 3/4 cup cocoa powder\n- 1 1/2 teaspoons (5 g) baking powder\n- 3/4 teaspoon (5 g) baking soda\n- A pinch of salt\n- 3 eggs\n- 1 cup milk\n- 1/2 cup vegetable oil\n- 1 tablespoon vanilla extract\n- 2 (20 oz) cans pitted sour cherries\n- 1/4 cup corn flour\n- 1 teaspoon vanilla extract (for filling)\n- 3 cups heavy whipping cream\n- 1/3 cup icing sugar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease and flour two 9-inch round cake pans; line bottoms with waxed paper.\n2. Combine flour, 2 cups sugar, cocoa, baking powder, baking soda, and salt. Add eggs, milk, oil, and 1 tablespoon vanilla; beat until well blended. Pour batter into prepared pans.\n3. Bake for 35 minutes, or until a toothpick comes out clean. Cool layers in pans 10 minutes, then turn out onto racks to cool completely.\n4. Drain cherries, reserving 1/2 cup juice. Combine juice, cherries, 1 cup sugar, and cornstarch in a saucepan; cook over low heat until thickened. Stir in 1 teaspoon vanilla. Cool.\n5. Beat whipping cream and icing sugar until stiff peaks form.\n6. Split each cake layer in half horizontally. Assemble with layers of frosting and cherry topping, ending with a cake layer. Frost the sides, press crumbs onto the sides, pipe a border, and top with remaining cherry topping.\n\nPrep: 20 mins | Cook: 45 mins | Total: 1:05"
+      },
+      "metadata": {
+        "recipe": "Black Forest Cake with Cream Filling and Cherries",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Can you generate the ingredients and instructions for Black Forest cake with cream filling?"
+      },
+      "outputs": {
+        "recipe_name": "Black Forest Cake with Cream Filling and Cherries",
+        "answer": "Black Forest Cake with Cream Filling and Cherries\n\nIngredients:\n- 2 1/8 cups (225 g) all-purpose flour\n- 3 cups white sugar\n- 3/4 cup cocoa powder\n- 1 1/2 teaspoons (5 g) baking powder\n- 3/4 teaspoon (5 g) baking soda\n- A pinch of salt\n- 3 eggs\n- 1 cup milk\n- 1/2 cup vegetable oil\n- 1 tablespoon vanilla extract\n- 2 (20 oz) cans pitted sour cherries\n- 1/4 cup corn flour\n- 1 teaspoon vanilla extract (for filling)\n- 3 cups heavy whipping cream\n- 1/3 cup icing sugar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease and flour two 9-inch round cake pans; line bottoms with waxed paper.\n2. Combine flour, 2 cups sugar, cocoa, baking powder, baking soda, and salt. Add eggs, milk, oil, and 1 tablespoon vanilla; beat until well blended. Pour batter into prepared pans.\n3. Bake for 35 minutes, or until a toothpick comes out clean. Cool layers in pans 10 minutes, then turn out onto racks to cool completely.\n4. Drain cherries, reserving 1/2 cup juice. Combine juice, cherries, 1 cup sugar, and cornstarch in a saucepan; cook over low heat until thickened. Stir in 1 teaspoon vanilla. Cool.\n5. Beat whipping cream and icing sugar until stiff peaks form.\n6. Split each cake layer in half horizontally. Assemble with layers of frosting and cherry topping, ending with a cake layer. Frost the sides, press crumbs onto the sides, pipe a border, and top with remaining cherry topping.\n\nPrep: 20 mins | Cook: 45 mins | Total: 1:05"
+      },
+      "metadata": {
+        "recipe": "Black Forest Cake with Cream Filling and Cherries",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Pineapple Upside-Down Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Pineapple Upside-Down Cake",
+        "answer": "Pineapple Upside-Down Cake\n\nIngredients:\n- 1/2 cup unsalted butter, melted\n- 2/3 cup packed brown sugar\n- 3 cups fresh pineapple, peeled and sliced\n- 1 1/2 cups all-purpose flour\n- 1 1/2 teaspoons baking powder\n- 1/2 teaspoon salt\n- 1/2 teaspoon ground cinnamon\n- 1/2 cup unsalted butter, softened\n- 2/3 cup icing sugar\n- 2 eggs\n- 1 teaspoon vanilla extract\n- 3/4 cup milk\n\nInstructions:\n1. Preheat the oven to 350°F (175°C).\n2. Stir together melted butter and brown sugar; spread evenly in a buttered 9-inch round cake pan. Pat pineapple dry and arrange evenly on top of the sugar mixture.\n3. Sift together flour, baking powder, salt, and cinnamon.\n4. Cream the softened butter with the sugar until light and fluffy. Add eggs one at a time, beating well. Stir in vanilla. Add the flour mixture in three parts alternately with the milk. Spread batter evenly into the prepared pan.\n5. Bake for 45 to 55 minutes, or until a tester comes out clean. Cool in the pan on a rack for 15 minutes, run a knife around the edge, and invert onto a plate. Serve warm or at room temperature.\n\nPrep: 15 mins | Cook: 60 mins | Total: 1:15"
+      },
+      "metadata": {
+        "recipe": "Pineapple Upside-Down Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Pineapple Upside-Down Cake?"
+      },
+      "outputs": {
+        "recipe_name": "Pineapple Upside-Down Cake",
+        "answer": "Pineapple Upside-Down Cake\n\nIngredients:\n- 1/2 cup unsalted butter, melted\n- 2/3 cup packed brown sugar\n- 3 cups fresh pineapple, peeled and sliced\n- 1 1/2 cups all-purpose flour\n- 1 1/2 teaspoons baking powder\n- 1/2 teaspoon salt\n- 1/2 teaspoon ground cinnamon\n- 1/2 cup unsalted butter, softened\n- 2/3 cup icing sugar\n- 2 eggs\n- 1 teaspoon vanilla extract\n- 3/4 cup milk\n\nInstructions:\n1. Preheat the oven to 350°F (175°C).\n2. Stir together melted butter and brown sugar; spread evenly in a buttered 9-inch round cake pan. Pat pineapple dry and arrange evenly on top of the sugar mixture.\n3. Sift together flour, baking powder, salt, and cinnamon.\n4. Cream the softened butter with the sugar until light and fluffy. Add eggs one at a time, beating well. Stir in vanilla. Add the flour mixture in three parts alternately with the milk. Spread batter evenly into the prepared pan.\n5. Bake for 45 to 55 minutes, or until a tester comes out clean. Cool in the pan on a rack for 15 minutes, run a knife around the edge, and invert onto a plate. Serve warm or at room temperature.\n\nPrep: 15 mins | Cook: 60 mins | Total: 1:15"
+      },
+      "metadata": {
+        "recipe": "Pineapple Upside-Down Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Pineapple Upside-Down Cake"
+      },
+      "outputs": {
+        "recipe_name": "Pineapple Upside-Down Cake",
+        "answer": "Pineapple Upside-Down Cake\n\nIngredients:\n- 1/2 cup unsalted butter, melted\n- 2/3 cup packed brown sugar\n- 3 cups fresh pineapple, peeled and sliced\n- 1 1/2 cups all-purpose flour\n- 1 1/2 teaspoons baking powder\n- 1/2 teaspoon salt\n- 1/2 teaspoon ground cinnamon\n- 1/2 cup unsalted butter, softened\n- 2/3 cup icing sugar\n- 2 eggs\n- 1 teaspoon vanilla extract\n- 3/4 cup milk\n\nInstructions:\n1. Preheat the oven to 350°F (175°C).\n2. Stir together melted butter and brown sugar; spread evenly in a buttered 9-inch round cake pan. Pat pineapple dry and arrange evenly on top of the sugar mixture.\n3. Sift together flour, baking powder, salt, and cinnamon.\n4. Cream the softened butter with the sugar until light and fluffy. Add eggs one at a time, beating well. Stir in vanilla. Add the flour mixture in three parts alternately with the milk. Spread batter evenly into the prepared pan.\n5. Bake for 45 to 55 minutes, or until a tester comes out clean. Cool in the pan on a rack for 15 minutes, run a knife around the edge, and invert onto a plate. Serve warm or at room temperature.\n\nPrep: 15 mins | Cook: 60 mins | Total: 1:15"
+      },
+      "metadata": {
+        "recipe": "Pineapple Upside-Down Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Strawberry Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Strawberry Cake",
+        "answer": "Strawberry Cake\n\nIngredients:\n- 2 cups icing sugar\n- 1 (3 oz) package strawberry flavored Jell-O\n- 1 cup butter, softened\n- 4 eggs (room temperature)\n- 2 3/4 cups sifted cake flour\n- 2 1/2 teaspoons baking powder\n- 1 cup whole milk, room temperature\n- 1 tablespoon vanilla extract\n- 1/2 cup strawberry puree made from frozen sweetened strawberries\n\nInstructions:\n1. Preheat the oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.\n2. Cream together the butter, sugar, and dry strawberry gelatin until light and fluffy. Beat in eggs one at a time. Combine the flour and baking powder; stir into the batter alternately with the milk. Blend in vanilla and strawberry puree. Divide batter evenly between the prepared pans.\n3. Bake for 25 to 30 minutes, or until a knife inserted into the center comes out clean. Cool in pans on a wire rack for at least 10 minutes before turning out to cool completely.\n\nPrep: 25 mins | Cook: 20 mins | Total: 45 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Strawberry Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make a Strawberry Cake, what's the recipe?"
+      },
+      "outputs": {
+        "recipe_name": "Strawberry Cake",
+        "answer": "Strawberry Cake\n\nIngredients:\n- 2 cups icing sugar\n- 1 (3 oz) package strawberry flavored Jell-O\n- 1 cup butter, softened\n- 4 eggs (room temperature)\n- 2 3/4 cups sifted cake flour\n- 2 1/2 teaspoons baking powder\n- 1 cup whole milk, room temperature\n- 1 tablespoon vanilla extract\n- 1/2 cup strawberry puree made from frozen sweetened strawberries\n\nInstructions:\n1. Preheat the oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.\n2. Cream together the butter, sugar, and dry strawberry gelatin until light and fluffy. Beat in eggs one at a time. Combine the flour and baking powder; stir into the batter alternately with the milk. Blend in vanilla and strawberry puree. Divide batter evenly between the prepared pans.\n3. Bake for 25 to 30 minutes, or until a knife inserted into the center comes out clean. Cool in pans on a wire rack for at least 10 minutes before turning out to cool completely.\n\nPrep: 25 mins | Cook: 20 mins | Total: 45 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Strawberry Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Strawberry Cake"
+      },
+      "outputs": {
+        "recipe_name": "Strawberry Cake",
+        "answer": "Strawberry Cake\n\nIngredients:\n- 2 cups icing sugar\n- 1 (3 oz) package strawberry flavored Jell-O\n- 1 cup butter, softened\n- 4 eggs (room temperature)\n- 2 3/4 cups sifted cake flour\n- 2 1/2 teaspoons baking powder\n- 1 cup whole milk, room temperature\n- 1 tablespoon vanilla extract\n- 1/2 cup strawberry puree made from frozen sweetened strawberries\n\nInstructions:\n1. Preheat the oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.\n2. Cream together the butter, sugar, and dry strawberry gelatin until light and fluffy. Beat in eggs one at a time. Combine the flour and baking powder; stir into the batter alternately with the milk. Blend in vanilla and strawberry puree. Divide batter evenly between the prepared pans.\n3. Bake for 25 to 30 minutes, or until a knife inserted into the center comes out clean. Cool in pans on a wire rack for at least 10 minutes before turning out to cool completely.\n\nPrep: 25 mins | Cook: 20 mins | Total: 45 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Strawberry Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Coconut Cream Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Coconut Cream Cake",
+        "answer": "Coconut Cream Cake\n\nIngredients:\n- Filling: 1/2 cup sugar\n- 1/4 cup cornflour\n- 1/8 teaspoon table salt\n- 4 large egg yolks\n- 1 cup half-and-half\n- 1 cup coconut milk\n- 1 cup desiccated coconut\n- 3 tablespoons butter\n- 1 teaspoon vanilla extract\n- 1/4 teaspoon coconut extract\n- Cake layers: 1 cup butter, softened\n- 2 cups sugar\n- 4 large eggs\n- 3 cups cake flour\n- 1 tablespoon baking powder\n- 1/2 teaspoon table salt\n- 1/2 cup milk\n- 1/2 cup coconut milk\n- 1 teaspoon vanilla extract\n- 1/2 teaspoon coconut extract\n- Shortening (for pans)\n- Additional: 1 cup heavy cream\n- Garnish: toasted coconut shavings\n\nInstructions:\n1. Prepare filling: whisk sugar, cornflour, and salt in a saucepan. Whisk egg yolks with half-and-half in a separate bowl, then gradually whisk into the sugar mixture. Cook over medium heat, whisking constantly, 6-7 minutes until it starts to bubble; cook 1 more minute and remove from heat.\n2. Whisk coconut milk, desiccated coconut, butter, vanilla, and coconut extract into the mixture. Cover with plastic wrap directly on the filling, let stand 30 minutes, then chill 4 to 24 hours.\n3. Prepare cake layers: preheat oven to 350°F. Beat butter until creamy, gradually add sugar until light and fluffy. Add eggs one at a time.\n4. Stir together cake flour, baking powder, and salt. Stir together milk and coconut milk. Add flour mixture to the butter mixture alternately with the milk mixture. Stir in vanilla and coconut extract. Spoon into two greased and floured 9-inch cake pans.\n5. Bake at 350°F for 25 to 30 minutes or until a wooden pick comes out clean. Cool in pans 10 minutes, then turn out onto racks to cool completely.\n6. Beat heavy cream until stiff peaks form and fold into the chilled filling.\n7. Split each cake layer in half to make 4 layers. Assemble with filling between layers, then frost top and sides and garnish with toasted coconut shavings.\n\nPrep: 1:25 | Cook: 40 mins | Total: 2:05"
+      },
+      "metadata": {
+        "recipe": "Coconut Cream Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I bake a Coconut Cream Cake?"
+      },
+      "outputs": {
+        "recipe_name": "Coconut Cream Cake",
+        "answer": "Coconut Cream Cake\n\nIngredients:\n- Filling: 1/2 cup sugar\n- 1/4 cup cornflour\n- 1/8 teaspoon table salt\n- 4 large egg yolks\n- 1 cup half-and-half\n- 1 cup coconut milk\n- 1 cup desiccated coconut\n- 3 tablespoons butter\n- 1 teaspoon vanilla extract\n- 1/4 teaspoon coconut extract\n- Cake layers: 1 cup butter, softened\n- 2 cups sugar\n- 4 large eggs\n- 3 cups cake flour\n- 1 tablespoon baking powder\n- 1/2 teaspoon table salt\n- 1/2 cup milk\n- 1/2 cup coconut milk\n- 1 teaspoon vanilla extract\n- 1/2 teaspoon coconut extract\n- Shortening (for pans)\n- Additional: 1 cup heavy cream\n- Garnish: toasted coconut shavings\n\nInstructions:\n1. Prepare filling: whisk sugar, cornflour, and salt in a saucepan. Whisk egg yolks with half-and-half in a separate bowl, then gradually whisk into the sugar mixture. Cook over medium heat, whisking constantly, 6-7 minutes until it starts to bubble; cook 1 more minute and remove from heat.\n2. Whisk coconut milk, desiccated coconut, butter, vanilla, and coconut extract into the mixture. Cover with plastic wrap directly on the filling, let stand 30 minutes, then chill 4 to 24 hours.\n3. Prepare cake layers: preheat oven to 350°F. Beat butter until creamy, gradually add sugar until light and fluffy. Add eggs one at a time.\n4. Stir together cake flour, baking powder, and salt. Stir together milk and coconut milk. Add flour mixture to the butter mixture alternately with the milk mixture. Stir in vanilla and coconut extract. Spoon into two greased and floured 9-inch cake pans.\n5. Bake at 350°F for 25 to 30 minutes or until a wooden pick comes out clean. Cool in pans 10 minutes, then turn out onto racks to cool completely.\n6. Beat heavy cream until stiff peaks form and fold into the chilled filling.\n7. Split each cake layer in half to make 4 layers. Assemble with filling between layers, then frost top and sides and garnish with toasted coconut shavings.\n\nPrep: 1:25 | Cook: 40 mins | Total: 2:05"
+      },
+      "metadata": {
+        "recipe": "Coconut Cream Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me ingredients and instructions for Coconut Cream Cake"
+      },
+      "outputs": {
+        "recipe_name": "Coconut Cream Cake",
+        "answer": "Coconut Cream Cake\n\nIngredients:\n- Filling: 1/2 cup sugar\n- 1/4 cup cornflour\n- 1/8 teaspoon table salt\n- 4 large egg yolks\n- 1 cup half-and-half\n- 1 cup coconut milk\n- 1 cup desiccated coconut\n- 3 tablespoons butter\n- 1 teaspoon vanilla extract\n- 1/4 teaspoon coconut extract\n- Cake layers: 1 cup butter, softened\n- 2 cups sugar\n- 4 large eggs\n- 3 cups cake flour\n- 1 tablespoon baking powder\n- 1/2 teaspoon table salt\n- 1/2 cup milk\n- 1/2 cup coconut milk\n- 1 teaspoon vanilla extract\n- 1/2 teaspoon coconut extract\n- Shortening (for pans)\n- Additional: 1 cup heavy cream\n- Garnish: toasted coconut shavings\n\nInstructions:\n1. Prepare filling: whisk sugar, cornflour, and salt in a saucepan. Whisk egg yolks with half-and-half in a separate bowl, then gradually whisk into the sugar mixture. Cook over medium heat, whisking constantly, 6-7 minutes until it starts to bubble; cook 1 more minute and remove from heat.\n2. Whisk coconut milk, desiccated coconut, butter, vanilla, and coconut extract into the mixture. Cover with plastic wrap directly on the filling, let stand 30 minutes, then chill 4 to 24 hours.\n3. Prepare cake layers: preheat oven to 350°F. Beat butter until creamy, gradually add sugar until light and fluffy. Add eggs one at a time.\n4. Stir together cake flour, baking powder, and salt. Stir together milk and coconut milk. Add flour mixture to the butter mixture alternately with the milk mixture. Stir in vanilla and coconut extract. Spoon into two greased and floured 9-inch cake pans.\n5. Bake at 350°F for 25 to 30 minutes or until a wooden pick comes out clean. Cool in pans 10 minutes, then turn out onto racks to cool completely.\n6. Beat heavy cream until stiff peaks form and fold into the chilled filling.\n7. Split each cake layer in half to make 4 layers. Assemble with filling between layers, then frost top and sides and garnish with toasted coconut shavings.\n\nPrep: 1:25 | Cook: 40 mins | Total: 2:05"
+      },
+      "metadata": {
+        "recipe": "Coconut Cream Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Lemon Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Lemon Cake",
+        "answer": "Lemon Cake\n\nIngredients:\n- 1 cup (2 sticks) unsalted butter, room temperature, plus more for pans\n- 2 1/2 cups all-purpose flour, plus more for pans\n- 1/2 teaspoon baking powder\n- 1/2 teaspoon baking soda\n- 1 teaspoon salt\n- 1 tablespoon lemon zest\n- 2 cups sugar\n- 2 large eggs plus 3 large egg yolks\n- 1/4 cup plus 2 tablespoons fresh lemon juice\n- 1 cup low-fat buttermilk\n- 1 lemon, thinly sliced and seeded\n- Whipped Frosting\n\nInstructions:\n1. Preheat oven to 350°F. Butter and flour two 8-by-2-inch cake pans. Whisk flour, baking powder, baking soda, salt, and lemon zest in a bowl.\n2. Beat butter and 1 1/2 cups sugar until light and fluffy. With mixer on low, beat in eggs and yolks one at a time. Beat in 2 tablespoons lemon juice. Alternately beat in the flour mixture and buttermilk, beginning and ending with the flour mixture.\n3. Divide batter between pans; smooth tops. Bake 32 to 35 minutes until cakes pull away from the sides of the pans. Cool in pans 10 minutes, then invert onto a wire rack.\n4. While cakes bake, bring the remaining 1/2 cup sugar and 1/2 cup water to a boil. Add lemon slices and simmer 25 minutes. Remove lemon slices and stir remaining 1/4 cup lemon juice into the syrup.\n5. Poke holes in the warm cakes and brush with the lemon syrup. Let cool completely. Prepare frosting (substituting 2 tablespoons lemon juice for vanilla). Frost cooled cakes and top with candied lemon slices.\n\nPrep: 15 mins | Total: 45 mins | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Lemon Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make Lemon Cake, what do I need?"
+      },
+      "outputs": {
+        "recipe_name": "Lemon Cake",
+        "answer": "Lemon Cake\n\nIngredients:\n- 1 cup (2 sticks) unsalted butter, room temperature, plus more for pans\n- 2 1/2 cups all-purpose flour, plus more for pans\n- 1/2 teaspoon baking powder\n- 1/2 teaspoon baking soda\n- 1 teaspoon salt\n- 1 tablespoon lemon zest\n- 2 cups sugar\n- 2 large eggs plus 3 large egg yolks\n- 1/4 cup plus 2 tablespoons fresh lemon juice\n- 1 cup low-fat buttermilk\n- 1 lemon, thinly sliced and seeded\n- Whipped Frosting\n\nInstructions:\n1. Preheat oven to 350°F. Butter and flour two 8-by-2-inch cake pans. Whisk flour, baking powder, baking soda, salt, and lemon zest in a bowl.\n2. Beat butter and 1 1/2 cups sugar until light and fluffy. With mixer on low, beat in eggs and yolks one at a time. Beat in 2 tablespoons lemon juice. Alternately beat in the flour mixture and buttermilk, beginning and ending with the flour mixture.\n3. Divide batter between pans; smooth tops. Bake 32 to 35 minutes until cakes pull away from the sides of the pans. Cool in pans 10 minutes, then invert onto a wire rack.\n4. While cakes bake, bring the remaining 1/2 cup sugar and 1/2 cup water to a boil. Add lemon slices and simmer 25 minutes. Remove lemon slices and stir remaining 1/4 cup lemon juice into the syrup.\n5. Poke holes in the warm cakes and brush with the lemon syrup. Let cool completely. Prepare frosting (substituting 2 tablespoons lemon juice for vanilla). Frost cooled cakes and top with candied lemon slices.\n\nPrep: 15 mins | Total: 45 mins | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Lemon Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and recipe for Lemon Cake"
+      },
+      "outputs": {
+        "recipe_name": "Lemon Cake",
+        "answer": "Lemon Cake\n\nIngredients:\n- 1 cup (2 sticks) unsalted butter, room temperature, plus more for pans\n- 2 1/2 cups all-purpose flour, plus more for pans\n- 1/2 teaspoon baking powder\n- 1/2 teaspoon baking soda\n- 1 teaspoon salt\n- 1 tablespoon lemon zest\n- 2 cups sugar\n- 2 large eggs plus 3 large egg yolks\n- 1/4 cup plus 2 tablespoons fresh lemon juice\n- 1 cup low-fat buttermilk\n- 1 lemon, thinly sliced and seeded\n- Whipped Frosting\n\nInstructions:\n1. Preheat oven to 350°F. Butter and flour two 8-by-2-inch cake pans. Whisk flour, baking powder, baking soda, salt, and lemon zest in a bowl.\n2. Beat butter and 1 1/2 cups sugar until light and fluffy. With mixer on low, beat in eggs and yolks one at a time. Beat in 2 tablespoons lemon juice. Alternately beat in the flour mixture and buttermilk, beginning and ending with the flour mixture.\n3. Divide batter between pans; smooth tops. Bake 32 to 35 minutes until cakes pull away from the sides of the pans. Cool in pans 10 minutes, then invert onto a wire rack.\n4. While cakes bake, bring the remaining 1/2 cup sugar and 1/2 cup water to a boil. Add lemon slices and simmer 25 minutes. Remove lemon slices and stir remaining 1/4 cup lemon juice into the syrup.\n5. Poke holes in the warm cakes and brush with the lemon syrup. Let cool completely. Prepare frosting (substituting 2 tablespoons lemon juice for vanilla). Frost cooled cakes and top with candied lemon slices.\n\nPrep: 15 mins | Total: 45 mins | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Lemon Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the red velvet cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet with Cream Cheese Frosting",
+        "answer": "Red Velvet with Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 1 1/2 cups (375 g) granulated sugar\n- 2 eggs\n- 2 tablespoons (14.76 g) cocoa powder\n- 4 tablespoons red food coloring\n- 1 teaspoon salt\n- 1 teaspoon vanilla extract\n- 1 cup (240 g) buttermilk\n- 2 1/2 cups (312.5 g) sifted all-purpose flour\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 tablespoon distilled white vinegar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease two 9-inch round pans.\n2. Beat butter and sugar until very light and fluffy. Add eggs and beat well.\n3. Make a paste of cocoa and red food coloring; add to the creamed mixture.\n4. Mix salt, vanilla, and buttermilk together.\n5. Add the flour to the mixture. Mix baking soda and vinegar and gently pour into the batter. Don't beat or stir after this point.\n6. Pour batter into prepared pans. Bake until a tester comes out clean, about 30 minutes. Cool cakes completely on a wire rack.\n7. Frost with Buttercream or Cream Cheese Frosting once cooled.\n\nPrep: 15 mins | Total: 35 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Red Velvet with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want the red velvet cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet with Cream Cheese Frosting",
+        "answer": "Red Velvet with Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 1 1/2 cups (375 g) granulated sugar\n- 2 eggs\n- 2 tablespoons (14.76 g) cocoa powder\n- 4 tablespoons red food coloring\n- 1 teaspoon salt\n- 1 teaspoon vanilla extract\n- 1 cup (240 g) buttermilk\n- 2 1/2 cups (312.5 g) sifted all-purpose flour\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 tablespoon distilled white vinegar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease two 9-inch round pans.\n2. Beat butter and sugar until very light and fluffy. Add eggs and beat well.\n3. Make a paste of cocoa and red food coloring; add to the creamed mixture.\n4. Mix salt, vanilla, and buttermilk together.\n5. Add the flour to the mixture. Mix baking soda and vinegar and gently pour into the batter. Don't beat or stir after this point.\n6. Pour batter into prepared pans. Bake until a tester comes out clean, about 30 minutes. Cool cakes completely on a wire rack.\n7. Frost with Buttercream or Cream Cheese Frosting once cooled.\n\nPrep: 15 mins | Total: 35 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Red Velvet with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate me the red velvet cake ingredients and recipe"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet with Cream Cheese Frosting",
+        "answer": "Red Velvet with Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 1 1/2 cups (375 g) granulated sugar\n- 2 eggs\n- 2 tablespoons (14.76 g) cocoa powder\n- 4 tablespoons red food coloring\n- 1 teaspoon salt\n- 1 teaspoon vanilla extract\n- 1 cup (240 g) buttermilk\n- 2 1/2 cups (312.5 g) sifted all-purpose flour\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 tablespoon distilled white vinegar\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Grease two 9-inch round pans.\n2. Beat butter and sugar until very light and fluffy. Add eggs and beat well.\n3. Make a paste of cocoa and red food coloring; add to the creamed mixture.\n4. Mix salt, vanilla, and buttermilk together.\n5. Add the flour to the mixture. Mix baking soda and vinegar and gently pour into the batter. Don't beat or stir after this point.\n6. Pour batter into prepared pans. Bake until a tester comes out clean, about 30 minutes. Cool cakes completely on a wire rack.\n7. Frost with Buttercream or Cream Cheese Frosting once cooled.\n\nPrep: 15 mins | Total: 35 mins | Servings: 8"
+      },
+      "metadata": {
+        "recipe": "Red Velvet with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the chocolate fudge cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Fudge Cake with Chocolate Curl",
+        "answer": "Chocolate Fudge Cake with Chocolate Curl\n\nIngredients:\n- 250 g butter, chopped\n- 1/2 cup (122.5 g) liquid milk\n- 180 g block dark chocolate, chopped\n- 2 cups (400 g) raw caster sugar\n- 312.5 g flour, sifted\n- 29.5 g cocoa powder\n- 2 eggs, lightly beaten\n- 1 cup (236.59 g) cold water\n- Dark chocolate curls, to decorate\n- Ganache: 400 g chocolate, chopped\n- 2/3 cup (160 g) thickened cream\n\nInstructions:\n1. Preheat oven to 160°C/140°C fan. Grease a 6cm-deep, 22cm round cake pan. Line base and side with baking paper, allowing a 2cm overhang.\n2. Place butter, cold water, milk, chocolate, and sugar in a saucepan over medium heat. Cook, stirring occasionally, 8-10 minutes until smooth and combined. Set aside 20 minutes to cool.\n3. Mix flour and cocoa into the chocolate mixture. Whisk in eggs until smooth. Spoon into the prepared pan.\n4. Bake for 1 hour 40 minutes or until a skewer comes out clean. Cool cake in pan.\n5. Make ganache: microwave chocolate and cream on medium-high, stirring every 30 seconds, until smooth. Refrigerate 15 minutes until thickened.\n6. Cut cake into 3 layers. Spread each layer with ganache, stacking them, then spread the top and side with remaining ganache.\n7. Decorate with chocolate curls and set aside for 1 hour before serving.\n\nPrep: 30 mins | Total: 3:45 | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Chocolate Fudge Cake with Chocolate Curl",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Chocolate Fudge Cake with chocolate curls?"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Fudge Cake with Chocolate Curl",
+        "answer": "Chocolate Fudge Cake with Chocolate Curl\n\nIngredients:\n- 250 g butter, chopped\n- 1/2 cup (122.5 g) liquid milk\n- 180 g block dark chocolate, chopped\n- 2 cups (400 g) raw caster sugar\n- 312.5 g flour, sifted\n- 29.5 g cocoa powder\n- 2 eggs, lightly beaten\n- 1 cup (236.59 g) cold water\n- Dark chocolate curls, to decorate\n- Ganache: 400 g chocolate, chopped\n- 2/3 cup (160 g) thickened cream\n\nInstructions:\n1. Preheat oven to 160°C/140°C fan. Grease a 6cm-deep, 22cm round cake pan. Line base and side with baking paper, allowing a 2cm overhang.\n2. Place butter, cold water, milk, chocolate, and sugar in a saucepan over medium heat. Cook, stirring occasionally, 8-10 minutes until smooth and combined. Set aside 20 minutes to cool.\n3. Mix flour and cocoa into the chocolate mixture. Whisk in eggs until smooth. Spoon into the prepared pan.\n4. Bake for 1 hour 40 minutes or until a skewer comes out clean. Cool cake in pan.\n5. Make ganache: microwave chocolate and cream on medium-high, stirring every 30 seconds, until smooth. Refrigerate 15 minutes until thickened.\n6. Cut cake into 3 layers. Spread each layer with ganache, stacking them, then spread the top and side with remaining ganache.\n7. Decorate with chocolate curls and set aside for 1 hour before serving.\n\nPrep: 30 mins | Total: 3:45 | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Chocolate Fudge Cake with Chocolate Curl",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Chocolate Fudge Cake"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Fudge Cake with Chocolate Curl",
+        "answer": "Chocolate Fudge Cake with Chocolate Curl\n\nIngredients:\n- 250 g butter, chopped\n- 1/2 cup (122.5 g) liquid milk\n- 180 g block dark chocolate, chopped\n- 2 cups (400 g) raw caster sugar\n- 312.5 g flour, sifted\n- 29.5 g cocoa powder\n- 2 eggs, lightly beaten\n- 1 cup (236.59 g) cold water\n- Dark chocolate curls, to decorate\n- Ganache: 400 g chocolate, chopped\n- 2/3 cup (160 g) thickened cream\n\nInstructions:\n1. Preheat oven to 160°C/140°C fan. Grease a 6cm-deep, 22cm round cake pan. Line base and side with baking paper, allowing a 2cm overhang.\n2. Place butter, cold water, milk, chocolate, and sugar in a saucepan over medium heat. Cook, stirring occasionally, 8-10 minutes until smooth and combined. Set aside 20 minutes to cool.\n3. Mix flour and cocoa into the chocolate mixture. Whisk in eggs until smooth. Spoon into the prepared pan.\n4. Bake for 1 hour 40 minutes or until a skewer comes out clean. Cool cake in pan.\n5. Make ganache: microwave chocolate and cream on medium-high, stirring every 30 seconds, until smooth. Refrigerate 15 minutes until thickened.\n6. Cut cake into 3 layers. Spread each layer with ganache, stacking them, then spread the top and side with remaining ganache.\n7. Decorate with chocolate curls and set aside for 1 hour before serving.\n\nPrep: 30 mins | Total: 3:45 | Servings: 12"
+      },
+      "metadata": {
+        "recipe": "Chocolate Fudge Cake with Chocolate Curl",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Coffee Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Coffee Cake",
+        "answer": "Coffee Cake\n\nIngredients:\n- 2 cups (250 g) flour\n- 3/4 cup (187.5 g) granulated sugar\n- 2 teaspoons (10 g) baking powder\n- 1/2 teaspoon (8.53 g) salt\n- 1/2 cup (113 g) butter\n- 1 egg\n- 3/4 cup (193.125) milk\n- 1 1/2 teaspoons vanilla extract\n- 1/4 cup (31.25 g) all-purpose flour (streusel)\n- 2/3 cup (166.67 g) granulated sugar (streusel)\n- 1 teaspoon (6 g) ground cinnamon (streusel)\n- 1/4 cup (56.5 g) butter (streusel)\n\nInstructions:\n1. Preheat oven to 350°F. Grease a 9-inch pan.\n2. Make the streusel topping: combine flour, sugar, and cinnamon; cut in butter until it resembles coarse crumbs. Set aside.\n3. In a large bowl, combine flour, sugar, baking powder, and salt. Cut in butter until coarse crumbs form. Crack the egg into a measuring cup and add milk to make 1 cup; stir in vanilla. Pour into the crumb mixture and mix just until moistened. Spread into the prepared pan and sprinkle with streusel.\n4. Bake for 25 to 30 minutes, or until a toothpick comes out clean. Allow to cool.\n\nPrep: 20 mins | Total: 45 mins"
+      },
+      "metadata": {
+        "recipe": "Coffee Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make Coffee Cake, what's the recipe?"
+      },
+      "outputs": {
+        "recipe_name": "Coffee Cake",
+        "answer": "Coffee Cake\n\nIngredients:\n- 2 cups (250 g) flour\n- 3/4 cup (187.5 g) granulated sugar\n- 2 teaspoons (10 g) baking powder\n- 1/2 teaspoon (8.53 g) salt\n- 1/2 cup (113 g) butter\n- 1 egg\n- 3/4 cup (193.125) milk\n- 1 1/2 teaspoons vanilla extract\n- 1/4 cup (31.25 g) all-purpose flour (streusel)\n- 2/3 cup (166.67 g) granulated sugar (streusel)\n- 1 teaspoon (6 g) ground cinnamon (streusel)\n- 1/4 cup (56.5 g) butter (streusel)\n\nInstructions:\n1. Preheat oven to 350°F. Grease a 9-inch pan.\n2. Make the streusel topping: combine flour, sugar, and cinnamon; cut in butter until it resembles coarse crumbs. Set aside.\n3. In a large bowl, combine flour, sugar, baking powder, and salt. Cut in butter until coarse crumbs form. Crack the egg into a measuring cup and add milk to make 1 cup; stir in vanilla. Pour into the crumb mixture and mix just until moistened. Spread into the prepared pan and sprinkle with streusel.\n4. Bake for 25 to 30 minutes, or until a toothpick comes out clean. Allow to cool.\n\nPrep: 20 mins | Total: 45 mins"
+      },
+      "metadata": {
+        "recipe": "Coffee Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Coffee Cake"
+      },
+      "outputs": {
+        "recipe_name": "Coffee Cake",
+        "answer": "Coffee Cake\n\nIngredients:\n- 2 cups (250 g) flour\n- 3/4 cup (187.5 g) granulated sugar\n- 2 teaspoons (10 g) baking powder\n- 1/2 teaspoon (8.53 g) salt\n- 1/2 cup (113 g) butter\n- 1 egg\n- 3/4 cup (193.125) milk\n- 1 1/2 teaspoons vanilla extract\n- 1/4 cup (31.25 g) all-purpose flour (streusel)\n- 2/3 cup (166.67 g) granulated sugar (streusel)\n- 1 teaspoon (6 g) ground cinnamon (streusel)\n- 1/4 cup (56.5 g) butter (streusel)\n\nInstructions:\n1. Preheat oven to 350°F. Grease a 9-inch pan.\n2. Make the streusel topping: combine flour, sugar, and cinnamon; cut in butter until it resembles coarse crumbs. Set aside.\n3. In a large bowl, combine flour, sugar, baking powder, and salt. Cut in butter until coarse crumbs form. Crack the egg into a measuring cup and add milk to make 1 cup; stir in vanilla. Pour into the crumb mixture and mix just until moistened. Spread into the prepared pan and sprinkle with streusel.\n4. Bake for 25 to 30 minutes, or until a toothpick comes out clean. Allow to cool.\n\nPrep: 20 mins | Total: 45 mins"
+      },
+      "metadata": {
+        "recipe": "Coffee Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Zebra Marble Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Zebra Marble Cake",
+        "answer": "Zebra Marble Cake\n\nIngredients:\n- 5 eggs\n- Sugar\n- Butter, room temperature\n- Sour cream\n- Baking soda\n- Baking powder\n- Cocoa powder\n- 1 cup (236.59 g) cold water\n- 2 cups flour\n\nInstructions:\n1. Combine softened butter with 3/4 cup of sugar.\n2. In a separate bowl, whisk eggs together with 1 cup of sugar.\n3. Add the butter mixture to the whisked eggs.\n4. Add baking powder and baking soda to the sour cream, then add it all to the cake batter.\n5. Add flour to the batter. Split the batter into two bowls, adding cocoa powder to one. Whisk each to combine well.\n6. Spray a 7 or 9-inch cake pan with cooking spray. Alternately spoon two tablespoons of each color batter on top of each other until you run out, creating the zebra effect. Bake at 350°F for 40 minutes; test with a toothpick for doneness.\n\nPrep: 30 mins | Cook: 45 mins | Total: 1:20"
+      },
+      "metadata": {
+        "recipe": "Zebra Marble Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make a Zebra Marble Cake?"
+      },
+      "outputs": {
+        "recipe_name": "Zebra Marble Cake",
+        "answer": "Zebra Marble Cake\n\nIngredients:\n- 5 eggs\n- Sugar\n- Butter, room temperature\n- Sour cream\n- Baking soda\n- Baking powder\n- Cocoa powder\n- 1 cup (236.59 g) cold water\n- 2 cups flour\n\nInstructions:\n1. Combine softened butter with 3/4 cup of sugar.\n2. In a separate bowl, whisk eggs together with 1 cup of sugar.\n3. Add the butter mixture to the whisked eggs.\n4. Add baking powder and baking soda to the sour cream, then add it all to the cake batter.\n5. Add flour to the batter. Split the batter into two bowls, adding cocoa powder to one. Whisk each to combine well.\n6. Spray a 7 or 9-inch cake pan with cooking spray. Alternately spoon two tablespoons of each color batter on top of each other until you run out, creating the zebra effect. Bake at 350°F for 40 minutes; test with a toothpick for doneness.\n\nPrep: 30 mins | Cook: 45 mins | Total: 1:20"
+      },
+      "metadata": {
+        "recipe": "Zebra Marble Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Zebra Marble Cake"
+      },
+      "outputs": {
+        "recipe_name": "Zebra Marble Cake",
+        "answer": "Zebra Marble Cake\n\nIngredients:\n- 5 eggs\n- Sugar\n- Butter, room temperature\n- Sour cream\n- Baking soda\n- Baking powder\n- Cocoa powder\n- 1 cup (236.59 g) cold water\n- 2 cups flour\n\nInstructions:\n1. Combine softened butter with 3/4 cup of sugar.\n2. In a separate bowl, whisk eggs together with 1 cup of sugar.\n3. Add the butter mixture to the whisked eggs.\n4. Add baking powder and baking soda to the sour cream, then add it all to the cake batter.\n5. Add flour to the batter. Split the batter into two bowls, adding cocoa powder to one. Whisk each to combine well.\n6. Spray a 7 or 9-inch cake pan with cooking spray. Alternately spoon two tablespoons of each color batter on top of each other until you run out, creating the zebra effect. Bake at 350°F for 40 minutes; test with a toothpick for doneness.\n\nPrep: 30 mins | Cook: 45 mins | Total: 1:20"
+      },
+      "metadata": {
+        "recipe": "Zebra Marble Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Carrot Cheese Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "answer": "Carrot Cheese Cake with Cream Cheese Frosting\n\nIngredients:\n- 2 cups (250 g) all purpose flour\n- 1.5 cups (375 g) granulated sugar\n- 1 teaspoon baking powder\n- 1 teaspoon baking soda\n- 1 teaspoon salt\n- 1 teaspoon cinnamon\n- 3 cups (375 g) grated carrots\n- 1 cup (240 ml) vegetable oil\n- 4 eggs\n\nInstructions:\n1. Pre-heat oven to 325°F.\n2. Stir dry ingredients together, then add carrots, oil, and eggs.\n3. Beat on high with electric beaters for 2 minutes.\n4. Bake at 325°F for 50-60 minutes (check for doneness at 50 minutes).\n5. Let the cake cool before icing with Royal Icing (With Eggs).\n\nPrep: 120 mins | Cook: 60 mins | Total: 180 mins | Servings: 10"
+      },
+      "metadata": {
+        "recipe": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make Carrot Cheese Cake with cream cheese frosting"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "answer": "Carrot Cheese Cake with Cream Cheese Frosting\n\nIngredients:\n- 2 cups (250 g) all purpose flour\n- 1.5 cups (375 g) granulated sugar\n- 1 teaspoon baking powder\n- 1 teaspoon baking soda\n- 1 teaspoon salt\n- 1 teaspoon cinnamon\n- 3 cups (375 g) grated carrots\n- 1 cup (240 ml) vegetable oil\n- 4 eggs\n\nInstructions:\n1. Pre-heat oven to 325°F.\n2. Stir dry ingredients together, then add carrots, oil, and eggs.\n3. Beat on high with electric beaters for 2 minutes.\n4. Bake at 325°F for 50-60 minutes (check for doneness at 50 minutes).\n5. Let the cake cool before icing with Royal Icing (With Eggs).\n\nPrep: 120 mins | Cook: 60 mins | Total: 180 mins | Servings: 10"
+      },
+      "metadata": {
+        "recipe": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Carrot Cheese Cake"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "answer": "Carrot Cheese Cake with Cream Cheese Frosting\n\nIngredients:\n- 2 cups (250 g) all purpose flour\n- 1.5 cups (375 g) granulated sugar\n- 1 teaspoon baking powder\n- 1 teaspoon baking soda\n- 1 teaspoon salt\n- 1 teaspoon cinnamon\n- 3 cups (375 g) grated carrots\n- 1 cup (240 ml) vegetable oil\n- 4 eggs\n\nInstructions:\n1. Pre-heat oven to 325°F.\n2. Stir dry ingredients together, then add carrots, oil, and eggs.\n3. Beat on high with electric beaters for 2 minutes.\n4. Bake at 325°F for 50-60 minutes (check for doneness at 50 minutes).\n5. Let the cake cool before icing with Royal Icing (With Eggs).\n\nPrep: 120 mins | Cook: 60 mins | Total: 180 mins | Servings: 10"
+      },
+      "metadata": {
+        "recipe": "Carrot Cheese Cake with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the plain cheesecake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Cheesecake (Plain)",
+        "answer": "Cheesecake (Plain)\n\nIngredients:\n- 1 1/2 cups (127.5 g) graham cracker crumbs\n- 3 Tbsp sugar\n- 1/3 cup butter or margarine, melted\n- PHILADELPHIA Cream Cheese (8 oz)\n- 1 cup (250 g) sugar\n- 1 tsp vanilla\n- 4 eggs\n\nInstructions:\n1. Heat oven to 325°F.\n2. Combine graham crumbs, 3 tablespoons sugar, and butter; press onto the bottom of a 9-inch springform pan.\n3. Beat cream cheese, sugar, and vanilla with a mixer until blended. Add eggs one at a time, mixing on low speed after each just until blended. Pour over the crust.\n4. Bake 55 minutes or until the center is almost set. Run a knife around the rim to loosen, cool before removing the rim, then refrigerate 4 hours.\n\nPrep: 20 mins | Total: 5:45 | Servings: 16"
+      },
+      "metadata": {
+        "recipe": "Cheesecake (Plain)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make a plain Cheesecake?"
+      },
+      "outputs": {
+        "recipe_name": "Cheesecake (Plain)",
+        "answer": "Cheesecake (Plain)\n\nIngredients:\n- 1 1/2 cups (127.5 g) graham cracker crumbs\n- 3 Tbsp sugar\n- 1/3 cup butter or margarine, melted\n- PHILADELPHIA Cream Cheese (8 oz)\n- 1 cup (250 g) sugar\n- 1 tsp vanilla\n- 4 eggs\n\nInstructions:\n1. Heat oven to 325°F.\n2. Combine graham crumbs, 3 tablespoons sugar, and butter; press onto the bottom of a 9-inch springform pan.\n3. Beat cream cheese, sugar, and vanilla with a mixer until blended. Add eggs one at a time, mixing on low speed after each just until blended. Pour over the crust.\n4. Bake 55 minutes or until the center is almost set. Run a knife around the rim to loosen, cool before removing the rim, then refrigerate 4 hours.\n\nPrep: 20 mins | Total: 5:45 | Servings: 16"
+      },
+      "metadata": {
+        "recipe": "Cheesecake (Plain)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for plain Cheesecake"
+      },
+      "outputs": {
+        "recipe_name": "Cheesecake (Plain)",
+        "answer": "Cheesecake (Plain)\n\nIngredients:\n- 1 1/2 cups (127.5 g) graham cracker crumbs\n- 3 Tbsp sugar\n- 1/3 cup butter or margarine, melted\n- PHILADELPHIA Cream Cheese (8 oz)\n- 1 cup (250 g) sugar\n- 1 tsp vanilla\n- 4 eggs\n\nInstructions:\n1. Heat oven to 325°F.\n2. Combine graham crumbs, 3 tablespoons sugar, and butter; press onto the bottom of a 9-inch springform pan.\n3. Beat cream cheese, sugar, and vanilla with a mixer until blended. Add eggs one at a time, mixing on low speed after each just until blended. Pour over the crust.\n4. Bake 55 minutes or until the center is almost set. Run a knife around the rim to loosen, cool before removing the rim, then refrigerate 4 hours.\n\nPrep: 20 mins | Total: 5:45 | Servings: 16"
+      },
+      "metadata": {
+        "recipe": "Cheesecake (Plain)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Banana Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Banana Cake",
+        "answer": "Banana Cake\n\nIngredients:\n- 140 g butter, softened, plus extra for the tin\n- 140 g caster sugar\n- 2 large eggs, beaten\n- 140 g flour\n- 1 tsp baking powder\n- 2 very ripe bananas, mashed\n- 50 g icing sugar\n- Handful dried banana chips, for decoration\n\nInstructions:\n1. Heat oven to 180°C/160°C fan/gas 4.\n2. Butter your tin and line the base and sides with baking parchment.\n3. Mix the butter and sugar until light and fluffy, then slowly add the eggs with a little flour. Fold in the remaining flour, baking powder, and bananas.\n4. Pour into the tin and bake for about 30 minutes until a skewer comes out clean. Cool in the tin for 10 minutes, then remove to a wire rack.\n5. Optional: mix icing sugar with 2-3 tsp water for a runny icing. Drizzle over the cake and decorate with banana chips.\n\nPrep: 15 mins | Cook: 40 mins\n\nNotes: Cuts into 8-10 slices"
+      },
+      "metadata": {
+        "recipe": "Banana Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make Banana Cake, what's the recipe?"
+      },
+      "outputs": {
+        "recipe_name": "Banana Cake",
+        "answer": "Banana Cake\n\nIngredients:\n- 140 g butter, softened, plus extra for the tin\n- 140 g caster sugar\n- 2 large eggs, beaten\n- 140 g flour\n- 1 tsp baking powder\n- 2 very ripe bananas, mashed\n- 50 g icing sugar\n- Handful dried banana chips, for decoration\n\nInstructions:\n1. Heat oven to 180°C/160°C fan/gas 4.\n2. Butter your tin and line the base and sides with baking parchment.\n3. Mix the butter and sugar until light and fluffy, then slowly add the eggs with a little flour. Fold in the remaining flour, baking powder, and bananas.\n4. Pour into the tin and bake for about 30 minutes until a skewer comes out clean. Cool in the tin for 10 minutes, then remove to a wire rack.\n5. Optional: mix icing sugar with 2-3 tsp water for a runny icing. Drizzle over the cake and decorate with banana chips.\n\nPrep: 15 mins | Cook: 40 mins\n\nNotes: Cuts into 8-10 slices"
+      },
+      "metadata": {
+        "recipe": "Banana Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Banana Cake"
+      },
+      "outputs": {
+        "recipe_name": "Banana Cake",
+        "answer": "Banana Cake\n\nIngredients:\n- 140 g butter, softened, plus extra for the tin\n- 140 g caster sugar\n- 2 large eggs, beaten\n- 140 g flour\n- 1 tsp baking powder\n- 2 very ripe bananas, mashed\n- 50 g icing sugar\n- Handful dried banana chips, for decoration\n\nInstructions:\n1. Heat oven to 180°C/160°C fan/gas 4.\n2. Butter your tin and line the base and sides with baking parchment.\n3. Mix the butter and sugar until light and fluffy, then slowly add the eggs with a little flour. Fold in the remaining flour, baking powder, and bananas.\n4. Pour into the tin and bake for about 30 minutes until a skewer comes out clean. Cool in the tin for 10 minutes, then remove to a wire rack.\n5. Optional: mix icing sugar with 2-3 tsp water for a runny icing. Drizzle over the cake and decorate with banana chips.\n\nPrep: 15 mins | Cook: 40 mins\n\nNotes: Cuts into 8-10 slices"
+      },
+      "metadata": {
+        "recipe": "Banana Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Apple and Almond Dessert Cake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Apple and Almond Dessert Cake",
+        "answer": "Apple and Almond Dessert Cake\n\nIngredients:\n- Melted butter for greasing\n- 180 g butter, at room temperature, chopped\n- 140 g caster sugar\n- 1 tsp vanilla extract\n- 3 eggs, at room temperature\n- 100 g ground almonds\n- 150 g flour\n- 80 ml milk\n- 2 small red or green apples, quartered and thinly sliced\n\nInstructions:\n1. Preheat the oven to 170°C. Brush the base of your tin with melted butter and line the base and side with baking parchment.\n2. Beat butter, caster sugar, and vanilla for 8 minutes until pale and creamy. Add the eggs one at a time, beating well after each addition.\n3. Stir in ground almonds. Add half the flour and half the milk, stirring until combined. Repeat with the remaining flour and milk.\n4. Arrange the apple slices, slightly overlapping, over the base of the tin. Spoon the mixture into the tin and smooth the surface.\n5. Bake for 30-35 minutes or until a skewer comes out clean.\n6. Cool in the pan for 10 minutes before turning onto a serving plate. Serve warm.\n\nPrep: 25 mins | Cook: 30 mins | Total: 1:45"
+      },
+      "metadata": {
+        "recipe": "Apple and Almond Dessert Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Apple and Almond Dessert Cake?"
+      },
+      "outputs": {
+        "recipe_name": "Apple and Almond Dessert Cake",
+        "answer": "Apple and Almond Dessert Cake\n\nIngredients:\n- Melted butter for greasing\n- 180 g butter, at room temperature, chopped\n- 140 g caster sugar\n- 1 tsp vanilla extract\n- 3 eggs, at room temperature\n- 100 g ground almonds\n- 150 g flour\n- 80 ml milk\n- 2 small red or green apples, quartered and thinly sliced\n\nInstructions:\n1. Preheat the oven to 170°C. Brush the base of your tin with melted butter and line the base and side with baking parchment.\n2. Beat butter, caster sugar, and vanilla for 8 minutes until pale and creamy. Add the eggs one at a time, beating well after each addition.\n3. Stir in ground almonds. Add half the flour and half the milk, stirring until combined. Repeat with the remaining flour and milk.\n4. Arrange the apple slices, slightly overlapping, over the base of the tin. Spoon the mixture into the tin and smooth the surface.\n5. Bake for 30-35 minutes or until a skewer comes out clean.\n6. Cool in the pan for 10 minutes before turning onto a serving plate. Serve warm.\n\nPrep: 25 mins | Cook: 30 mins | Total: 1:45"
+      },
+      "metadata": {
+        "recipe": "Apple and Almond Dessert Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Apple and Almond Dessert Cake"
+      },
+      "outputs": {
+        "recipe_name": "Apple and Almond Dessert Cake",
+        "answer": "Apple and Almond Dessert Cake\n\nIngredients:\n- Melted butter for greasing\n- 180 g butter, at room temperature, chopped\n- 140 g caster sugar\n- 1 tsp vanilla extract\n- 3 eggs, at room temperature\n- 100 g ground almonds\n- 150 g flour\n- 80 ml milk\n- 2 small red or green apples, quartered and thinly sliced\n\nInstructions:\n1. Preheat the oven to 170°C. Brush the base of your tin with melted butter and line the base and side with baking parchment.\n2. Beat butter, caster sugar, and vanilla for 8 minutes until pale and creamy. Add the eggs one at a time, beating well after each addition.\n3. Stir in ground almonds. Add half the flour and half the milk, stirring until combined. Repeat with the remaining flour and milk.\n4. Arrange the apple slices, slightly overlapping, over the base of the tin. Spoon the mixture into the tin and smooth the surface.\n5. Bake for 30-35 minutes or until a skewer comes out clean.\n6. Cool in the pan for 10 minutes before turning onto a serving plate. Serve warm.\n\nPrep: 25 mins | Cook: 30 mins | Total: 1:45"
+      },
+      "metadata": {
+        "recipe": "Apple and Almond Dessert Cake",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Carrot Cake with Pineapple Cream Cheese Frosting recipe"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "answer": "Carrot Cake with Pineapple Cream Cheese Frosting\n\nIngredients:\n- Cake: cooking spray/butter\n- 2 cups (250 g) all-purpose flour\n- 2 teaspoons baking soda\n- 2 teaspoons ground cinnamon\n- 1/2 teaspoon salt\n- 2 eggs\n- 1 1/2 cups (375 g) granulated sugar\n- 3/4 cup (187 g) buttermilk\n- 3/4 cup (180 ml) applesauce\n- 2 tablespoons vegetable oil\n- 2 teaspoons vanilla extract\n- 2 1/2 cups grated carrots\n- 1 1/2 cups chopped pecans\n- 224 g fresh pineapple juice\n- Frosting: 1 pack Philadelphia cream cheese\n- 1 tablespoon fresh pineapple juice\n- 1 (16 oz) package confectioners' sugar\n- 1 teaspoon vanilla extract\n- 1 pinch salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Spray or butter your cake tin.\n2. Sift flour, baking soda, cinnamon, and salt together. Lightly beat eggs; add sugar, buttermilk, applesauce, oil, and vanilla extract, mixing well.\n3. Stir the buttermilk mixture, carrots, pecans, and pineapple juice into the flour mixture just until combined; pour into the prepared tin.\n4. Bake until a toothpick comes out clean, 45 to 50 minutes. Cool on a wire rack about 1 hour, then cover and refrigerate 8 hours to overnight.\n5. Beat cream cheese and reserved pineapple juice until smooth; add icing sugar, vanilla, and salt and beat until smooth. Spread frosting on the cake.\n\nPrep: 20 mins | Cook: 45 mins | Total: 10:5"
+      },
+      "metadata": {
+        "recipe": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make Carrot Cake with pineapple cream cheese frosting"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "answer": "Carrot Cake with Pineapple Cream Cheese Frosting\n\nIngredients:\n- Cake: cooking spray/butter\n- 2 cups (250 g) all-purpose flour\n- 2 teaspoons baking soda\n- 2 teaspoons ground cinnamon\n- 1/2 teaspoon salt\n- 2 eggs\n- 1 1/2 cups (375 g) granulated sugar\n- 3/4 cup (187 g) buttermilk\n- 3/4 cup (180 ml) applesauce\n- 2 tablespoons vegetable oil\n- 2 teaspoons vanilla extract\n- 2 1/2 cups grated carrots\n- 1 1/2 cups chopped pecans\n- 224 g fresh pineapple juice\n- Frosting: 1 pack Philadelphia cream cheese\n- 1 tablespoon fresh pineapple juice\n- 1 (16 oz) package confectioners' sugar\n- 1 teaspoon vanilla extract\n- 1 pinch salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Spray or butter your cake tin.\n2. Sift flour, baking soda, cinnamon, and salt together. Lightly beat eggs; add sugar, buttermilk, applesauce, oil, and vanilla extract, mixing well.\n3. Stir the buttermilk mixture, carrots, pecans, and pineapple juice into the flour mixture just until combined; pour into the prepared tin.\n4. Bake until a toothpick comes out clean, 45 to 50 minutes. Cool on a wire rack about 1 hour, then cover and refrigerate 8 hours to overnight.\n5. Beat cream cheese and reserved pineapple juice until smooth; add icing sugar, vanilla, and salt and beat until smooth. Spread frosting on the cake.\n\nPrep: 20 mins | Cook: 45 mins | Total: 10:5"
+      },
+      "metadata": {
+        "recipe": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Carrot Cake with Pineapple Frosting"
+      },
+      "outputs": {
+        "recipe_name": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "answer": "Carrot Cake with Pineapple Cream Cheese Frosting\n\nIngredients:\n- Cake: cooking spray/butter\n- 2 cups (250 g) all-purpose flour\n- 2 teaspoons baking soda\n- 2 teaspoons ground cinnamon\n- 1/2 teaspoon salt\n- 2 eggs\n- 1 1/2 cups (375 g) granulated sugar\n- 3/4 cup (187 g) buttermilk\n- 3/4 cup (180 ml) applesauce\n- 2 tablespoons vegetable oil\n- 2 teaspoons vanilla extract\n- 2 1/2 cups grated carrots\n- 1 1/2 cups chopped pecans\n- 224 g fresh pineapple juice\n- Frosting: 1 pack Philadelphia cream cheese\n- 1 tablespoon fresh pineapple juice\n- 1 (16 oz) package confectioners' sugar\n- 1 teaspoon vanilla extract\n- 1 pinch salt\n\nInstructions:\n1. Preheat oven to 350°F (175°C). Spray or butter your cake tin.\n2. Sift flour, baking soda, cinnamon, and salt together. Lightly beat eggs; add sugar, buttermilk, applesauce, oil, and vanilla extract, mixing well.\n3. Stir the buttermilk mixture, carrots, pecans, and pineapple juice into the flour mixture just until combined; pour into the prepared tin.\n4. Bake until a toothpick comes out clean, 45 to 50 minutes. Cool on a wire rack about 1 hour, then cover and refrigerate 8 hours to overnight.\n5. Beat cream cheese and reserved pineapple juice until smooth; add icing sugar, vanilla, and salt and beat until smooth. Spread frosting on the cake.\n\nPrep: 20 mins | Cook: 45 mins | Total: 10:5"
+      },
+      "metadata": {
+        "recipe": "Carrot Cake with Pineapple Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Souffle Cheesecake recipe"
+      },
+      "outputs": {
+        "recipe_name": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "answer": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting\n\nIngredients:\n- 3 1/2 Tbsp unsalted butter (50 g)\n- 4 oz (113 g) sliced cheddar cheese\n- 1/2 cup condensed milk (120 ml)\n- 1 Tbsp honey\n- 3 eggs, separated\n- 3 Tbsp flour\n- 1/2 cup granulated sugar (90 g)\n- Vanilla extract, to taste\n\nInstructions:\n1. Line a round 7-inch cake pan with parchment paper. Sift the flour, preheat oven to 320°F (160°C), and prepare a water bath.\n2. Melt the cheese in milk. Turn off the heat, add butter and honey, and stir until melted. Set aside.\n3. Beat egg whites until a dense foam forms (about 3 minutes at high speed), add sugar, then beat 45 seconds at low-medium speed.\n4. Add the yolks into the cheese mixture a third at a time.\n5. Add the flour into the cheese mixture until well mixed, then add vanilla to taste.\n6. Pour into the cake pan; lift and drop the pan gently on the counter to pop air bubbles (don't splash).\n7. Bake in a water bath for 20 minutes, then reduce heat to 280°F (140°C) and bake another 40 minutes. Cover with foil if the top browns too quickly.\n8. Cool in the oven for 30 minutes, then remove from the pan once touchable.\n9. Sprinkle with icing sugar and refrigerate at least a day before serving.\n\nTotal: 1:45"
+      },
+      "metadata": {
+        "recipe": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Japanese Cheesecake?"
+      },
+      "outputs": {
+        "recipe_name": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "answer": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting\n\nIngredients:\n- 3 1/2 Tbsp unsalted butter (50 g)\n- 4 oz (113 g) sliced cheddar cheese\n- 1/2 cup condensed milk (120 ml)\n- 1 Tbsp honey\n- 3 eggs, separated\n- 3 Tbsp flour\n- 1/2 cup granulated sugar (90 g)\n- Vanilla extract, to taste\n\nInstructions:\n1. Line a round 7-inch cake pan with parchment paper. Sift the flour, preheat oven to 320°F (160°C), and prepare a water bath.\n2. Melt the cheese in milk. Turn off the heat, add butter and honey, and stir until melted. Set aside.\n3. Beat egg whites until a dense foam forms (about 3 minutes at high speed), add sugar, then beat 45 seconds at low-medium speed.\n4. Add the yolks into the cheese mixture a third at a time.\n5. Add the flour into the cheese mixture until well mixed, then add vanilla to taste.\n6. Pour into the cake pan; lift and drop the pan gently on the counter to pop air bubbles (don't splash).\n7. Bake in a water bath for 20 minutes, then reduce heat to 280°F (140°C) and bake another 40 minutes. Cover with foil if the top browns too quickly.\n8. Cool in the oven for 30 minutes, then remove from the pan once touchable.\n9. Sprinkle with icing sugar and refrigerate at least a day before serving.\n\nTotal: 1:45"
+      },
+      "metadata": {
+        "recipe": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Souffle Cheesecake (Japanese Cheesecake)"
+      },
+      "outputs": {
+        "recipe_name": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "answer": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting\n\nIngredients:\n- 3 1/2 Tbsp unsalted butter (50 g)\n- 4 oz (113 g) sliced cheddar cheese\n- 1/2 cup condensed milk (120 ml)\n- 1 Tbsp honey\n- 3 eggs, separated\n- 3 Tbsp flour\n- 1/2 cup granulated sugar (90 g)\n- Vanilla extract, to taste\n\nInstructions:\n1. Line a round 7-inch cake pan with parchment paper. Sift the flour, preheat oven to 320°F (160°C), and prepare a water bath.\n2. Melt the cheese in milk. Turn off the heat, add butter and honey, and stir until melted. Set aside.\n3. Beat egg whites until a dense foam forms (about 3 minutes at high speed), add sugar, then beat 45 seconds at low-medium speed.\n4. Add the yolks into the cheese mixture a third at a time.\n5. Add the flour into the cheese mixture until well mixed, then add vanilla to taste.\n6. Pour into the cake pan; lift and drop the pan gently on the counter to pop air bubbles (don't splash).\n7. Bake in a water bath for 20 minutes, then reduce heat to 280°F (140°C) and bake another 40 minutes. Cover with foil if the top browns too quickly.\n8. Cool in the oven for 30 minutes, then remove from the pan once touchable.\n9. Sprinkle with icing sugar and refrigerate at least a day before serving.\n\nTotal: 1:45"
+      },
+      "metadata": {
+        "recipe": "Souffle Cheesecake (Japanese Cheesecake) with Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Chocolate Cake with Chocolate Buttercream Frosting recipe"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "answer": "Chocolate Cake with Chocolate Buttercream Frosting\n\nIngredients:\n- 2 cups (240 g) all-purpose flour\n- 2 cups (400 g) white sugar\n- 3/4 cup (75 g) cocoa powder\n- 2 teaspoons (10 g) baking powder\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 teaspoon (4.93 g) salt\n- 1 teaspoon (1 g) espresso powder\n- 1 cup (125 g) milk\n- 1/2 cup (91 g) vegetable/coconut oil, melted\n- 2 large eggs\n- 2 teaspoons (8.40 g) vanilla extract\n- 1 cup (235 ml) boiling water\n\nInstructions:\n1. Preheat oven to 350°F. Prepare two 9-inch cake pans by spraying or buttering and flouring.\n2. Whisk together flour, sugar, cocoa, baking powder, baking soda, salt, and espresso powder in a large bowl.\n3. Add milk, oil, eggs, and vanilla to the flour mixture and mix on medium speed until well combined. Reduce speed and carefully add the boiling water until well combined (the batter will be very thin — this is correct).\n4. Distribute batter evenly between the two pans. Bake 30-35 minutes, until a toothpick comes out clean.\n5. Remove from oven and cool about 10 minutes before removing from the pans to cool completely.\n\nPrep: 55 mins | Cook: 40 mins | Total: 1:35"
+      },
+      "metadata": {
+        "recipe": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make a moist chocolate cake, what's the recipe?"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "answer": "Chocolate Cake with Chocolate Buttercream Frosting\n\nIngredients:\n- 2 cups (240 g) all-purpose flour\n- 2 cups (400 g) white sugar\n- 3/4 cup (75 g) cocoa powder\n- 2 teaspoons (10 g) baking powder\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 teaspoon (4.93 g) salt\n- 1 teaspoon (1 g) espresso powder\n- 1 cup (125 g) milk\n- 1/2 cup (91 g) vegetable/coconut oil, melted\n- 2 large eggs\n- 2 teaspoons (8.40 g) vanilla extract\n- 1 cup (235 ml) boiling water\n\nInstructions:\n1. Preheat oven to 350°F. Prepare two 9-inch cake pans by spraying or buttering and flouring.\n2. Whisk together flour, sugar, cocoa, baking powder, baking soda, salt, and espresso powder in a large bowl.\n3. Add milk, oil, eggs, and vanilla to the flour mixture and mix on medium speed until well combined. Reduce speed and carefully add the boiling water until well combined (the batter will be very thin — this is correct).\n4. Distribute batter evenly between the two pans. Bake 30-35 minutes, until a toothpick comes out clean.\n5. Remove from oven and cool about 10 minutes before removing from the pans to cool completely.\n\nPrep: 55 mins | Cook: 40 mins | Total: 1:35"
+      },
+      "metadata": {
+        "recipe": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Chocolate Cake with Buttercream Frosting"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "answer": "Chocolate Cake with Chocolate Buttercream Frosting\n\nIngredients:\n- 2 cups (240 g) all-purpose flour\n- 2 cups (400 g) white sugar\n- 3/4 cup (75 g) cocoa powder\n- 2 teaspoons (10 g) baking powder\n- 1 1/2 teaspoons (10.5 g) baking soda\n- 1 teaspoon (4.93 g) salt\n- 1 teaspoon (1 g) espresso powder\n- 1 cup (125 g) milk\n- 1/2 cup (91 g) vegetable/coconut oil, melted\n- 2 large eggs\n- 2 teaspoons (8.40 g) vanilla extract\n- 1 cup (235 ml) boiling water\n\nInstructions:\n1. Preheat oven to 350°F. Prepare two 9-inch cake pans by spraying or buttering and flouring.\n2. Whisk together flour, sugar, cocoa, baking powder, baking soda, salt, and espresso powder in a large bowl.\n3. Add milk, oil, eggs, and vanilla to the flour mixture and mix on medium speed until well combined. Reduce speed and carefully add the boiling water until well combined (the batter will be very thin — this is correct).\n4. Distribute batter evenly between the two pans. Bake 30-35 minutes, until a toothpick comes out clean.\n5. Remove from oven and cool about 10 minutes before removing from the pans to cool completely.\n\nPrep: 55 mins | Cook: 40 mins | Total: 1:35"
+      },
+      "metadata": {
+        "recipe": "Chocolate Cake with Chocolate Buttercream Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Chocolate Chip Cookies recipe"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Chip Cookies",
+        "answer": "Chocolate Chip Cookies\n\nIngredients:\n- 1/2 cup (1 stick) unsalted butter\n- 3/4 cup packed dark brown sugar\n- 3/4 cup sugar\n- 2 large eggs\n- 1 teaspoon pure vanilla extract\n- 1 (12-oz) bag semisweet chocolate chips or chunks\n- 2 1/4 cups all-purpose flour\n- 3/4 teaspoon baking soda\n- 1 teaspoon fine salt\n\nInstructions:\n1. Position 2 racks in the middle of the oven and preheat to 375°F. Line 2 baking sheets with parchment paper.\n2. Melt the butter and cool slightly. Whisk the sugars, eggs, butter, and vanilla in a large bowl until smooth.\n3. Whisk the flour, baking soda, and salt in another bowl. Stir the dry ingredients into the wet ingredients without overmixing. Stir in the chocolate chips.\n4. Scoop heaping tablespoons of dough onto the pans, rolling into balls, spaced about 2 inches apart. Bake 12 to 16 minutes until golden but still soft in the center.\n5. Transfer to a rack to cool. Store in a sealed container for up to 5 days.\n\nPrep: 10 mins | Cook: 16 mins | Total: 26 mins"
+      },
+      "metadata": {
+        "recipe": "Chocolate Chip Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Chocolate Chip Cookies?"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Chip Cookies",
+        "answer": "Chocolate Chip Cookies\n\nIngredients:\n- 1/2 cup (1 stick) unsalted butter\n- 3/4 cup packed dark brown sugar\n- 3/4 cup sugar\n- 2 large eggs\n- 1 teaspoon pure vanilla extract\n- 1 (12-oz) bag semisweet chocolate chips or chunks\n- 2 1/4 cups all-purpose flour\n- 3/4 teaspoon baking soda\n- 1 teaspoon fine salt\n\nInstructions:\n1. Position 2 racks in the middle of the oven and preheat to 375°F. Line 2 baking sheets with parchment paper.\n2. Melt the butter and cool slightly. Whisk the sugars, eggs, butter, and vanilla in a large bowl until smooth.\n3. Whisk the flour, baking soda, and salt in another bowl. Stir the dry ingredients into the wet ingredients without overmixing. Stir in the chocolate chips.\n4. Scoop heaping tablespoons of dough onto the pans, rolling into balls, spaced about 2 inches apart. Bake 12 to 16 minutes until golden but still soft in the center.\n5. Transfer to a rack to cool. Store in a sealed container for up to 5 days.\n\nPrep: 10 mins | Cook: 16 mins | Total: 26 mins"
+      },
+      "metadata": {
+        "recipe": "Chocolate Chip Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Chocolate Chip Cookies"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Chip Cookies",
+        "answer": "Chocolate Chip Cookies\n\nIngredients:\n- 1/2 cup (1 stick) unsalted butter\n- 3/4 cup packed dark brown sugar\n- 3/4 cup sugar\n- 2 large eggs\n- 1 teaspoon pure vanilla extract\n- 1 (12-oz) bag semisweet chocolate chips or chunks\n- 2 1/4 cups all-purpose flour\n- 3/4 teaspoon baking soda\n- 1 teaspoon fine salt\n\nInstructions:\n1. Position 2 racks in the middle of the oven and preheat to 375°F. Line 2 baking sheets with parchment paper.\n2. Melt the butter and cool slightly. Whisk the sugars, eggs, butter, and vanilla in a large bowl until smooth.\n3. Whisk the flour, baking soda, and salt in another bowl. Stir the dry ingredients into the wet ingredients without overmixing. Stir in the chocolate chips.\n4. Scoop heaping tablespoons of dough onto the pans, rolling into balls, spaced about 2 inches apart. Bake 12 to 16 minutes until golden but still soft in the center.\n5. Transfer to a rack to cool. Store in a sealed container for up to 5 days.\n\nPrep: 10 mins | Cook: 16 mins | Total: 26 mins"
+      },
+      "metadata": {
+        "recipe": "Chocolate Chip Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Red Velvet Sandwich Cookies recipe"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet Sandwich Cookies",
+        "answer": "Red Velvet Sandwich Cookies\n\nIngredients:\n- 1 1/3 cups all-purpose flour\n- 2 tablespoons cocoa powder\n- 1 teaspoon baking powder\n- 1/4 teaspoon baking soda\n- 1/2 teaspoon salt\n- 1/4 cup butter, room temperature\n- 1 cup sugar\n- 2 eggs\n- 2 tablespoons buttermilk\n- 2 teaspoons apple cider vinegar\n- 1 tablespoon red food coloring\n- Cream Cheese Frosting (see separate recipe)\n\nInstructions:\n1. Preheat oven to 375°F.\n2. Mix together flour, cocoa powder, baking powder, baking soda, and salt in a small bowl.\n3. Cream together butter and sugar until light and fluffy (about 3 minutes). Add eggs one at a time, then beat in buttermilk, vinegar, vanilla, and red food coloring. Add the dry ingredients to the wet and mix until combined.\n4. Drop batter onto a parchment-lined sheet tray using an ice cream scoop, forming 2-inch round circles.\n5. Bake for 10 minutes, until baked through; cookies should be cake-like and light. Cool a few minutes on the tray, then transfer to a wire rack to cool completely.\n6. Beat cream cheese, butter, and vanilla until smooth, add sugar, and beat until light and fluffy.\n7. Spread the cream cheese frosting between 2 cooled cookies.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 sandwiches"
+      },
+      "metadata": {
+        "recipe": "Red Velvet Sandwich Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "I want to make red velvet sandwich cookies, what's the recipe?"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet Sandwich Cookies",
+        "answer": "Red Velvet Sandwich Cookies\n\nIngredients:\n- 1 1/3 cups all-purpose flour\n- 2 tablespoons cocoa powder\n- 1 teaspoon baking powder\n- 1/4 teaspoon baking soda\n- 1/2 teaspoon salt\n- 1/4 cup butter, room temperature\n- 1 cup sugar\n- 2 eggs\n- 2 tablespoons buttermilk\n- 2 teaspoons apple cider vinegar\n- 1 tablespoon red food coloring\n- Cream Cheese Frosting (see separate recipe)\n\nInstructions:\n1. Preheat oven to 375°F.\n2. Mix together flour, cocoa powder, baking powder, baking soda, and salt in a small bowl.\n3. Cream together butter and sugar until light and fluffy (about 3 minutes). Add eggs one at a time, then beat in buttermilk, vinegar, vanilla, and red food coloring. Add the dry ingredients to the wet and mix until combined.\n4. Drop batter onto a parchment-lined sheet tray using an ice cream scoop, forming 2-inch round circles.\n5. Bake for 10 minutes, until baked through; cookies should be cake-like and light. Cool a few minutes on the tray, then transfer to a wire rack to cool completely.\n6. Beat cream cheese, butter, and vanilla until smooth, add sugar, and beat until light and fluffy.\n7. Spread the cream cheese frosting between 2 cooled cookies.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 sandwiches"
+      },
+      "metadata": {
+        "recipe": "Red Velvet Sandwich Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Generate the ingredients and instructions for Red Velvet Sandwich Cookies"
+      },
+      "outputs": {
+        "recipe_name": "Red Velvet Sandwich Cookies",
+        "answer": "Red Velvet Sandwich Cookies\n\nIngredients:\n- 1 1/3 cups all-purpose flour\n- 2 tablespoons cocoa powder\n- 1 teaspoon baking powder\n- 1/4 teaspoon baking soda\n- 1/2 teaspoon salt\n- 1/4 cup butter, room temperature\n- 1 cup sugar\n- 2 eggs\n- 2 tablespoons buttermilk\n- 2 teaspoons apple cider vinegar\n- 1 tablespoon red food coloring\n- Cream Cheese Frosting (see separate recipe)\n\nInstructions:\n1. Preheat oven to 375°F.\n2. Mix together flour, cocoa powder, baking powder, baking soda, and salt in a small bowl.\n3. Cream together butter and sugar until light and fluffy (about 3 minutes). Add eggs one at a time, then beat in buttermilk, vinegar, vanilla, and red food coloring. Add the dry ingredients to the wet and mix until combined.\n4. Drop batter onto a parchment-lined sheet tray using an ice cream scoop, forming 2-inch round circles.\n5. Bake for 10 minutes, until baked through; cookies should be cake-like and light. Cool a few minutes on the tray, then transfer to a wire rack to cool completely.\n6. Beat cream cheese, butter, and vanilla until smooth, add sugar, and beat until light and fluffy.\n7. Spread the cream cheese frosting between 2 cooled cookies.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 sandwiches"
+      },
+      "metadata": {
+        "recipe": "Red Velvet Sandwich Cookies",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Royal Icing recipe"
+      },
+      "outputs": {
+        "recipe_name": "Royal Icing (With Eggs)",
+        "answer": "Royal Icing (With Eggs)\n\nIngredients:\n- 3 cups (330 g) icing sugar, plus additional as necessary\n- 2 egg whites\n- 1 teaspoon (5 mL) lemon juice\n\nInstructions:\n1. Sift the icing sugar into a bowl (helps prevent lumps).\n2. Separate the egg whites into a bowl.\n3. Combine lemon juice and egg whites and whisk briefly, about 20 seconds.\n4. In a stand mixer, combine the lemon juice/egg white mixture with the sugar, adding it gradually on medium speed. Mix until shiny and opaque, about 5 minutes.\n5. For piping icing, mix until soft peaks form. For firmer peaks, continue adding sugar 2 teaspoons at a time while beating.\n6. Adjust consistency as needed: add more sugar if too runny, more egg white if too stiff, or a few drops of water if you want it runnier (then rest up to 30 minutes to let air bubbles settle).\n7. Use immediately or store in an airtight container, as royal icing hardens quickly.\n\nPrep: 215 mins | Total: 15 mins\n\nNotes: Yield: 20 cups"
+      },
+      "metadata": {
+        "recipe": "Royal Icing (With Eggs)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Royal Icing with eggs?"
+      },
+      "outputs": {
+        "recipe_name": "Royal Icing (With Eggs)",
+        "answer": "Royal Icing (With Eggs)\n\nIngredients:\n- 3 cups (330 g) icing sugar, plus additional as necessary\n- 2 egg whites\n- 1 teaspoon (5 mL) lemon juice\n\nInstructions:\n1. Sift the icing sugar into a bowl (helps prevent lumps).\n2. Separate the egg whites into a bowl.\n3. Combine lemon juice and egg whites and whisk briefly, about 20 seconds.\n4. In a stand mixer, combine the lemon juice/egg white mixture with the sugar, adding it gradually on medium speed. Mix until shiny and opaque, about 5 minutes.\n5. For piping icing, mix until soft peaks form. For firmer peaks, continue adding sugar 2 teaspoons at a time while beating.\n6. Adjust consistency as needed: add more sugar if too runny, more egg white if too stiff, or a few drops of water if you want it runnier (then rest up to 30 minutes to let air bubbles settle).\n7. Use immediately or store in an airtight container, as royal icing hardens quickly.\n\nPrep: 215 mins | Total: 15 mins\n\nNotes: Yield: 20 cups"
+      },
+      "metadata": {
+        "recipe": "Royal Icing (With Eggs)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Royal Icing"
+      },
+      "outputs": {
+        "recipe_name": "Royal Icing (With Eggs)",
+        "answer": "Royal Icing (With Eggs)\n\nIngredients:\n- 3 cups (330 g) icing sugar, plus additional as necessary\n- 2 egg whites\n- 1 teaspoon (5 mL) lemon juice\n\nInstructions:\n1. Sift the icing sugar into a bowl (helps prevent lumps).\n2. Separate the egg whites into a bowl.\n3. Combine lemon juice and egg whites and whisk briefly, about 20 seconds.\n4. In a stand mixer, combine the lemon juice/egg white mixture with the sugar, adding it gradually on medium speed. Mix until shiny and opaque, about 5 minutes.\n5. For piping icing, mix until soft peaks form. For firmer peaks, continue adding sugar 2 teaspoons at a time while beating.\n6. Adjust consistency as needed: add more sugar if too runny, more egg white if too stiff, or a few drops of water if you want it runnier (then rest up to 30 minutes to let air bubbles settle).\n7. Use immediately or store in an airtight container, as royal icing hardens quickly.\n\nPrep: 215 mins | Total: 15 mins\n\nNotes: Yield: 20 cups"
+      },
+      "metadata": {
+        "recipe": "Royal Icing (With Eggs)",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Buttercream Icing recipe"
+      },
+      "outputs": {
+        "recipe_name": "Buttercream Icing",
+        "answer": "Buttercream Icing\n\nIngredients:\n- 3 cups (375 g) icing sugar\n- 1 cup (225 g) unsalted butter\n- 1 teaspoon vanilla extract (optional)\n- 1-2 tablespoons tin milk\n- Pinch of salt (optional)\n\nInstructions:\n1. Cut softened butter into cubes and place in a bowl.\n2. Beat the butter at low speed for at least 5 minutes until light, fluffy, near-white, and doubled in size.\n3. Add half the sugar and mix it in gradually.\n4. Add the rest of the ingredients (vanilla, milk) and continue mixing at low speed; adjust milk amount for desired stiffness, and add a pinch of salt if desired to cut sweetness.\n5. Optionally add food coloring.\n6. Add the rest of the sugar and beat on high for 2-3 minutes until light and fluffy. Adjust with more cream/milk if too thick, or more sugar if too thin.\n7. Store or use immediately. Buttercream keeps in the refrigerator for 2 weeks; frosted cakes stay fresh for 3 days.\n\nPrep: 15 mins | Total: 15 mins\n\nNotes: Yield: 6 cups"
+      },
+      "metadata": {
+        "recipe": "Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Buttercream Icing?"
+      },
+      "outputs": {
+        "recipe_name": "Buttercream Icing",
+        "answer": "Buttercream Icing\n\nIngredients:\n- 3 cups (375 g) icing sugar\n- 1 cup (225 g) unsalted butter\n- 1 teaspoon vanilla extract (optional)\n- 1-2 tablespoons tin milk\n- Pinch of salt (optional)\n\nInstructions:\n1. Cut softened butter into cubes and place in a bowl.\n2. Beat the butter at low speed for at least 5 minutes until light, fluffy, near-white, and doubled in size.\n3. Add half the sugar and mix it in gradually.\n4. Add the rest of the ingredients (vanilla, milk) and continue mixing at low speed; adjust milk amount for desired stiffness, and add a pinch of salt if desired to cut sweetness.\n5. Optionally add food coloring.\n6. Add the rest of the sugar and beat on high for 2-3 minutes until light and fluffy. Adjust with more cream/milk if too thick, or more sugar if too thin.\n7. Store or use immediately. Buttercream keeps in the refrigerator for 2 weeks; frosted cakes stay fresh for 3 days.\n\nPrep: 15 mins | Total: 15 mins\n\nNotes: Yield: 6 cups"
+      },
+      "metadata": {
+        "recipe": "Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Buttercream Icing"
+      },
+      "outputs": {
+        "recipe_name": "Buttercream Icing",
+        "answer": "Buttercream Icing\n\nIngredients:\n- 3 cups (375 g) icing sugar\n- 1 cup (225 g) unsalted butter\n- 1 teaspoon vanilla extract (optional)\n- 1-2 tablespoons tin milk\n- Pinch of salt (optional)\n\nInstructions:\n1. Cut softened butter into cubes and place in a bowl.\n2. Beat the butter at low speed for at least 5 minutes until light, fluffy, near-white, and doubled in size.\n3. Add half the sugar and mix it in gradually.\n4. Add the rest of the ingredients (vanilla, milk) and continue mixing at low speed; adjust milk amount for desired stiffness, and add a pinch of salt if desired to cut sweetness.\n5. Optionally add food coloring.\n6. Add the rest of the sugar and beat on high for 2-3 minutes until light and fluffy. Adjust with more cream/milk if too thick, or more sugar if too thin.\n7. Store or use immediately. Buttercream keeps in the refrigerator for 2 weeks; frosted cakes stay fresh for 3 days.\n\nPrep: 15 mins | Total: 15 mins\n\nNotes: Yield: 6 cups"
+      },
+      "metadata": {
+        "recipe": "Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Chocolate Buttercream Icing recipe"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Buttercream Icing",
+        "answer": "Chocolate Buttercream Icing\n\nIngredients:\n- 1 1/2 cups butter (3 sticks), softened\n- 1 cup (125 g) cocoa powder\n- 5 cups (550 g) icing sugar\n- 1/2 cup tin milk\n- 2 teaspoons vanilla extract\n- 1/2 teaspoon espresso powder\n\nInstructions:\n1. Add cocoa to a large bowl and whisk to remove lumps.\n2. Cream together butter and cocoa powder until well combined.\n3. Add sugar and milk alternately — 1 cup sugar followed by about a tablespoon of milk — beating on high for about a minute after each addition. Repeat until all sugar and milk are added.\n4. Add vanilla extract and espresso powder and combine well.\n5. Adjust consistency: add more milk if too dry, or more icing sugar if too wet.\n\nPrep: 10 mins | Total: 10 mins\n\nNotes: Yield: 9 cups"
+      },
+      "metadata": {
+        "recipe": "Chocolate Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Chocolate Buttercream Icing?"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Buttercream Icing",
+        "answer": "Chocolate Buttercream Icing\n\nIngredients:\n- 1 1/2 cups butter (3 sticks), softened\n- 1 cup (125 g) cocoa powder\n- 5 cups (550 g) icing sugar\n- 1/2 cup tin milk\n- 2 teaspoons vanilla extract\n- 1/2 teaspoon espresso powder\n\nInstructions:\n1. Add cocoa to a large bowl and whisk to remove lumps.\n2. Cream together butter and cocoa powder until well combined.\n3. Add sugar and milk alternately — 1 cup sugar followed by about a tablespoon of milk — beating on high for about a minute after each addition. Repeat until all sugar and milk are added.\n4. Add vanilla extract and espresso powder and combine well.\n5. Adjust consistency: add more milk if too dry, or more icing sugar if too wet.\n\nPrep: 10 mins | Total: 10 mins\n\nNotes: Yield: 9 cups"
+      },
+      "metadata": {
+        "recipe": "Chocolate Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Chocolate Buttercream Icing"
+      },
+      "outputs": {
+        "recipe_name": "Chocolate Buttercream Icing",
+        "answer": "Chocolate Buttercream Icing\n\nIngredients:\n- 1 1/2 cups butter (3 sticks), softened\n- 1 cup (125 g) cocoa powder\n- 5 cups (550 g) icing sugar\n- 1/2 cup tin milk\n- 2 teaspoons vanilla extract\n- 1/2 teaspoon espresso powder\n\nInstructions:\n1. Add cocoa to a large bowl and whisk to remove lumps.\n2. Cream together butter and cocoa powder until well combined.\n3. Add sugar and milk alternately — 1 cup sugar followed by about a tablespoon of milk — beating on high for about a minute after each addition. Repeat until all sugar and milk are added.\n4. Add vanilla extract and espresso powder and combine well.\n5. Adjust consistency: add more milk if too dry, or more icing sugar if too wet.\n\nPrep: 10 mins | Total: 10 mins\n\nNotes: Yield: 9 cups"
+      },
+      "metadata": {
+        "recipe": "Chocolate Buttercream Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Fondant Icing recipe"
+      },
+      "outputs": {
+        "recipe_name": "Fondant Icing",
+        "answer": "Fondant Icing\n\nIngredients:\n- 1 tablespoon (9.25 g) gelatin\n- 1/4 cup cold water\n- 1 teaspoon almond extract\n- 1/2 cup light corn syrup\n- 1 tablespoon (1.26 g) glycerin\n- 1 kg icing sugar\n- 1/2 teaspoon white vegetable shortening\n- Food coloring (optional)\n\nInstructions:\n1. Sprinkle gelatin over cold water in a small bowl; let rest 2 minutes to soften. Microwave 30 seconds on high until dissolved.\n2. Add almond extract, corn syrup, and glycerin; stir until smooth and clear (microwave a bit more if needed).\n3. Sift 1.5 lbs of the sugar into a bowl, make a hole in the center, and stir the liquid mixture in until sticky. Add food coloring if desired.\n4. Sift remaining sugar onto a work surface.\n5. Knead the fondant on the sugared surface until smooth and pliable, adding more sugar as needed. Work in vegetable shortening with your fingers.\n6. Wrap in plastic wrap and store in a sealed container; keeps about six days refrigerated.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 servings"
+      },
+      "metadata": {
+        "recipe": "Fondant Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Fondant Icing?"
+      },
+      "outputs": {
+        "recipe_name": "Fondant Icing",
+        "answer": "Fondant Icing\n\nIngredients:\n- 1 tablespoon (9.25 g) gelatin\n- 1/4 cup cold water\n- 1 teaspoon almond extract\n- 1/2 cup light corn syrup\n- 1 tablespoon (1.26 g) glycerin\n- 1 kg icing sugar\n- 1/2 teaspoon white vegetable shortening\n- Food coloring (optional)\n\nInstructions:\n1. Sprinkle gelatin over cold water in a small bowl; let rest 2 minutes to soften. Microwave 30 seconds on high until dissolved.\n2. Add almond extract, corn syrup, and glycerin; stir until smooth and clear (microwave a bit more if needed).\n3. Sift 1.5 lbs of the sugar into a bowl, make a hole in the center, and stir the liquid mixture in until sticky. Add food coloring if desired.\n4. Sift remaining sugar onto a work surface.\n5. Knead the fondant on the sugared surface until smooth and pliable, adding more sugar as needed. Work in vegetable shortening with your fingers.\n6. Wrap in plastic wrap and store in a sealed container; keeps about six days refrigerated.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 servings"
+      },
+      "metadata": {
+        "recipe": "Fondant Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Fondant Icing"
+      },
+      "outputs": {
+        "recipe_name": "Fondant Icing",
+        "answer": "Fondant Icing\n\nIngredients:\n- 1 tablespoon (9.25 g) gelatin\n- 1/4 cup cold water\n- 1 teaspoon almond extract\n- 1/2 cup light corn syrup\n- 1 tablespoon (1.26 g) glycerin\n- 1 kg icing sugar\n- 1/2 teaspoon white vegetable shortening\n- Food coloring (optional)\n\nInstructions:\n1. Sprinkle gelatin over cold water in a small bowl; let rest 2 minutes to soften. Microwave 30 seconds on high until dissolved.\n2. Add almond extract, corn syrup, and glycerin; stir until smooth and clear (microwave a bit more if needed).\n3. Sift 1.5 lbs of the sugar into a bowl, make a hole in the center, and stir the liquid mixture in until sticky. Add food coloring if desired.\n4. Sift remaining sugar onto a work surface.\n5. Knead the fondant on the sugared surface until smooth and pliable, adding more sugar as needed. Work in vegetable shortening with your fingers.\n6. Wrap in plastic wrap and store in a sealed container; keeps about six days refrigerated.\n\nPrep: 40 mins | Cook: 30 mins\n\nNotes: Yield: 12-15 servings"
+      },
+      "metadata": {
+        "recipe": "Fondant Icing",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Cream Cheese Frosting recipe"
+      },
+      "outputs": {
+        "recipe_name": "Cream Cheese Frosting",
+        "answer": "Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 8 ounces (225 g) cream cheese, room temperature\n- 16 ounces (455 g) icing sugar\n- 1 teaspoon vanilla extract\n\nInstructions:\n1. Combine the cream cheese and butter in a mixer; beat at medium speed until creamy.\n2. Lower the speed and gradually add the icing sugar, mixing it in as you go.\n3. Raise the speed to high and mix thoroughly.\n4. Add the vanilla and stir it in.\n\nPrep: 10 mins | Total: 10 mins"
+      },
+      "metadata": {
+        "recipe": "Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Cream Cheese Frosting?"
+      },
+      "outputs": {
+        "recipe_name": "Cream Cheese Frosting",
+        "answer": "Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 8 ounces (225 g) cream cheese, room temperature\n- 16 ounces (455 g) icing sugar\n- 1 teaspoon vanilla extract\n\nInstructions:\n1. Combine the cream cheese and butter in a mixer; beat at medium speed until creamy.\n2. Lower the speed and gradually add the icing sugar, mixing it in as you go.\n3. Raise the speed to high and mix thoroughly.\n4. Add the vanilla and stir it in.\n\nPrep: 10 mins | Total: 10 mins"
+      },
+      "metadata": {
+        "recipe": "Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Cream Cheese Frosting"
+      },
+      "outputs": {
+        "recipe_name": "Cream Cheese Frosting",
+        "answer": "Cream Cheese Frosting\n\nIngredients:\n- 1/2 cup (113 g) butter, room temperature\n- 8 ounces (225 g) cream cheese, room temperature\n- 16 ounces (455 g) icing sugar\n- 1 teaspoon vanilla extract\n\nInstructions:\n1. Combine the cream cheese and butter in a mixer; beat at medium speed until creamy.\n2. Lower the speed and gradually add the icing sugar, mixing it in as you go.\n3. Raise the speed to high and mix thoroughly.\n4. Add the vanilla and stir it in.\n\nPrep: 10 mins | Total: 10 mins"
+      },
+      "metadata": {
+        "recipe": "Cream Cheese Frosting",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Give me the Whipped Cream recipe"
+      },
+      "outputs": {
+        "recipe_name": "Whipped Cream",
+        "answer": "Whipped Cream\n\nIngredients:\n- 1 cup heavy whipping cream\n- 1/2 cup (40 g) icing sugar\n- Pinch of salt\n\nInstructions:\n1. Chill the cream (and bowl, if possible) before whipping.\n2. Add sugar and a pinch of salt to the cream; stir well. (Optionally add a tablespoon of cocoa for chocolate whipped cream.)\n3. Whisk the cream in a circular direction as quickly as possible using a whisk, hand mixer, or stand mixer.\n4. Watch for peaks to form — continue whipping until the whisk leaves semi-stiff peaks.\n5. Whip to soft or stiff peaks depending on preference, but stop before it turns to butter.\n\nPrep: 6 mins | Total: 6 mins"
+      },
+      "metadata": {
+        "recipe": "Whipped Cream",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "How do I make Whipped Cream?"
+      },
+      "outputs": {
+        "recipe_name": "Whipped Cream",
+        "answer": "Whipped Cream\n\nIngredients:\n- 1 cup heavy whipping cream\n- 1/2 cup (40 g) icing sugar\n- Pinch of salt\n\nInstructions:\n1. Chill the cream (and bowl, if possible) before whipping.\n2. Add sugar and a pinch of salt to the cream; stir well. (Optionally add a tablespoon of cocoa for chocolate whipped cream.)\n3. Whisk the cream in a circular direction as quickly as possible using a whisk, hand mixer, or stand mixer.\n4. Watch for peaks to form — continue whipping until the whisk leaves semi-stiff peaks.\n5. Whip to soft or stiff peaks depending on preference, but stop before it turns to butter.\n\nPrep: 6 mins | Total: 6 mins"
+      },
+      "metadata": {
+        "recipe": "Whipped Cream",
+        "source": "Baker's Choice Recipe Book"
+      }
+    },
+    {
+      "inputs": {
+        "query": "Show me the ingredients and steps for Whipped Cream"
+      },
+      "outputs": {
+        "recipe_name": "Whipped Cream",
+        "answer": "Whipped Cream\n\nIngredients:\n- 1 cup heavy whipping cream\n- 1/2 cup (40 g) icing sugar\n- Pinch of salt\n\nInstructions:\n1. Chill the cream (and bowl, if possible) before whipping.\n2. Add sugar and a pinch of salt to the cream; stir well. (Optionally add a tablespoon of cocoa for chocolate whipped cream.)\n3. Whisk the cream in a circular direction as quickly as possible using a whisk, hand mixer, or stand mixer.\n4. Watch for peaks to form — continue whipping until the whisk leaves semi-stiff peaks.\n5. Whip to soft or stiff peaks depending on preference, but stop before it turns to butter.\n\nPrep: 6 mins | Total: 6 mins"
+      },
+      "metadata": {
+        "recipe": "Whipped Cream",
+        "source": "Baker's Choice Recipe Book"
+      }
+    }
+  ]
+}
