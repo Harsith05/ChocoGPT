@@ -50,12 +50,12 @@ load_dotenv()
 # CONFIG
 # =====================================================
 
-DATASET_JSON_PATH = "data/langsmith_eval_dataset.json"   # your hand-curated file
+DATASET_JSON_PATH = "langsmith_eval_dataset.json"   # your hand-curated file
 
 LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
 GEMINI_API_KEY    = os.getenv("GEMINI_API_KEY")
 
-PROJECT_NAME  = "cocoagpt"
+PROJECT_NAME  = "CocoaGPT-RAG"
 DATASET_NAME  = "CocoaGPT-Eval-Dataset"             # name shown in LangSmith UI
 BACKEND_URL   = "http://localhost:8000/chat"
 

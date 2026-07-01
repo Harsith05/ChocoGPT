@@ -7,7 +7,22 @@ from typing import Optional, TypedDict
 
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from pydantic import BaseModel
+
+from mongo_db import (
+    ensure_user,
+    create_chat,
+    get_user_chats,
+    get_chat,
+    update_chat_title,
+    delete_chat,
+    save_message,
+    get_chat_messages,
+    get_last_recipe_message,
+    save_image,
+    get_image,
+)
 
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
@@ -101,6 +116,34 @@ class ChatRequest(BaseModel):
     query:       str
     history:     list[HistoryMessage] = []   # last N turns from frontend
     last_recipe: Optional[dict]       = None  # structured recipe from previous turn, if any
+
+
+# ---- MongoDB persistence request models ----
+
+class EnsureUserRequest(BaseModel):
+    uid:          str
+    email:        str = ""
+    display_name: str = ""
+
+
+class CreateChatRequest(BaseModel):
+    user_id: str
+    title:   str = "New Chat"
+
+
+class UpdateChatTitleRequest(BaseModel):
+    title: str
+
+
+class SaveMessageRequest(BaseModel):
+    user_id:            str
+    role:                str                  # "user" | "assistant"
+    text:                str          = ""
+    recipe:              Optional[dict] = None
+    image_urls:          list[str]    = []    # external URLs (SerpAPI etc.)
+    is_file:             bool         = False
+    file_name:           str          = ""
+    detected_cake_type:  Optional[str] = None
 
 # =====================================================
 # DOMAIN CLASSIFIER  (pure keyword/regex — no LLM call)
@@ -852,6 +895,118 @@ def build_graph():
 
 
 COCOA_GRAPH = build_graph()
+
+# =====================================================
+# =====================================================
+#            MONGODB — USERS / CHATS / MESSAGES / IMAGES
+# =====================================================
+# =====================================================
+# These endpoints replace the old direct-from-frontend Firestore calls.
+# The React client now talks to Mongo exclusively through this REST layer
+# instead of holding its own DB SDK/credentials.
+
+@app.post("/api/users/ensure")
+def api_ensure_user(request: EnsureUserRequest):
+    """Upserts the user doc. Call once after Firebase Auth login succeeds."""
+    return ensure_user(request.uid, email=request.email, display_name=request.display_name)
+
+
+@app.post("/api/chats")
+def api_create_chat(request: CreateChatRequest):
+    return create_chat(request.user_id, title=request.title)
+
+
+@app.get("/api/chats/{user_id}")
+def api_get_user_chats(user_id: str):
+    return get_user_chats(user_id)
+
+
+@app.delete("/api/chats/{chat_id}")
+def api_delete_chat(chat_id: str):
+    """Cascades: deletes the chat, its messages, and any GridFS images they reference."""
+    return delete_chat(chat_id)
+
+
+@app.patch("/api/chats/{chat_id}/title")
+def api_update_chat_title(chat_id: str, request: UpdateChatTitleRequest):
+    updated = update_chat_title(chat_id, request.title)
+    return {"updated": updated}
+
+
+@app.get("/api/chats/{chat_id}/messages")
+def api_get_chat_messages(chat_id: str):
+    return get_chat_messages(chat_id)
+
+
+@app.get("/api/chats/{chat_id}/last_recipe")
+def api_get_last_recipe(chat_id: str):
+    return {"recipe": get_last_recipe_message(chat_id)}
+
+
+@app.post("/api/chats/{chat_id}/messages")
+def api_save_message(chat_id: str, request: SaveMessageRequest):
+    """Saves a plain text/recipe message (no file attached)."""
+    return save_message(
+        chat_id=chat_id,
+        user_id=request.user_id,
+        role=request.role,
+        text=request.text,
+        recipe=request.recipe,
+        image_urls=request.image_urls,
+        is_file=request.is_file,
+        file_name=request.file_name,
+        detected_cake_type=request.detected_cake_type,
+    )
+
+
+@app.post("/api/chats/{chat_id}/messages/file")
+async def api_save_file_message(
+    chat_id:  str,
+    user_id:  str        = Form(...),
+    text:     str        = Form(default=""),
+    file:     UploadFile = File(...),
+):
+    """
+    Stores the uploaded file's bytes in GridFS, then saves a message that
+    references it via image_refs. Works for images and other attachments
+    alike — GridFS doesn't care about content type, only the frontend's
+    `isImage` check (based on content_type) decides how to render it.
+    """
+    file_bytes = await file.read()
+    content_type = file.content_type or "application/octet-stream"
+
+    file_id = save_image(
+        file_bytes,
+        filename=file.filename or "upload",
+        content_type=content_type,
+        user_id=user_id,
+        chat_id=chat_id,
+    )
+
+    msg = save_message(
+        chat_id=chat_id,
+        user_id=user_id,
+        role="user",
+        text=text,
+        image_refs=[file_id],
+        is_file=True,
+        file_name=file.filename or "upload",
+    )
+    msg["file_id"]      = file_id
+    msg["is_image"]     = content_type.startswith("image/")
+    msg["file_url"]     = f"/images/{file_id}"
+    return msg
+
+
+@app.get("/images/{file_id}")
+def api_get_image(file_id: str):
+    """Streams a GridFS-stored image/file back by id."""
+    result = get_image(file_id)
+    if result is None:
+        return Response(status_code=404)
+    data, content_type = result
+    return Response(content=data, media_type=content_type)
+
 
 # =====================================================
 # /chat  ENDPOINT
